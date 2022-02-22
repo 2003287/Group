@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2681403311517577569}
   - component: {fileID: 4666983489490425701}
+  - component: {fileID: -5726310410830747004}
   - component: {fileID: 7188288791385950944}
   - component: {fileID: 8249000715934166247}
   m_Layer: 0
-  m_Name: New Prefab
+  m_Name: TestCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +42,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2739600100715742999}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &-5726310410830747004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739600100715742999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d2b4e7fe0e9f14681a1f334d6c438d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7188288791385950944
 MeshRenderer:
   m_ObjectHideFlags: 0
