@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cursorpressed : MonoBehaviour
 {
-   
+    private player m_player;
     //timers
     private float timer;
     // private bool m_change;
@@ -18,8 +18,7 @@ public class cursorpressed : MonoBehaviour
     private bool m_ray_hit;
     //string for the gameobject
     private string m_hitstring;
-
-    private bool m_reset_colour;
+ 
     //the private gameobject
     private GameObject m_gameObject;
 
@@ -31,38 +30,17 @@ public class cursorpressed : MonoBehaviour
         m_debug_timer = false;
         m_resettimer = false;
         m_ray_hit = false;
-        m_reset_colour = false;
+        m_player = GameObject.FindGameObjectWithTag("PLayerController").GetComponent<player>();
     }
-    //changing the colour values
-    void ChangeColour()
-    {
-       
-            if (m_ray_hit)
-            {               
-            //tap 
-                if (timer > 0 && timer < 3.0)
-                {
-                    if (m_gameObject.name == m_hitstring)
-                        m_gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-                }
-                //held
-                else
-                {
-                    if (m_gameObject.name == m_hitstring)
-                        m_gameObject.GetComponent<MeshRenderer>().material.color = Color.blue;
-                }
-            }
-      
-       
-       
-    }
+  
+   
 
     // Update is called once per frame
     void Update()
     {
         //ray from the mouse initial press
         if (Input.GetButtonDown("Fire1"))
-        {
+        {            
             if (!m_ray_hit)
             {
                 //reseting the timer
@@ -85,10 +63,15 @@ public class cursorpressed : MonoBehaviour
                     Debug.Log(Input.mousePosition.y);
                     //bools for the hit result
                     m_ray_hit = true;
-                    m_reset_colour = true;
-                    //get the game object and send a message to the gameobject
-                    m_gameObject = GameObject.Find(m_hitstring);
-                    m_gameObject.transform.SendMessage("Testvoid");
+                    
+                    if (hit.collider.CompareTag("Clickable"))
+                    {
+                        //get the game object and send a message to the gameobject
+                            m_gameObject = GameObject.Find(m_hitstring);
+                            m_gameObject.transform.SendMessage("Testvoid");    
+                     }
+                    
+
                 }
                 //no hit
                 else
@@ -111,9 +94,11 @@ public class cursorpressed : MonoBehaviour
             //allow the screen to be tapped again
             if (!m_resettimer)
             {
-                if (m_gameObject)
+                if (m_gameObject && m_gameObject.CompareTag("Popped"))
                 {
                     m_gameObject.SendMessage("TimerSetting", timer);
+                    Debug.Log("has this happened");
+                    m_player.CreateButtons(m_gameObject);
                 }
                 timer = 0;
                 m_resettimer = true;
@@ -142,20 +127,7 @@ public class cursorpressed : MonoBehaviour
 
         //switch colour back to white
 
-        if (timer == 0&& m_reset_colour)
-        {
-            if (m_gameObject)
-            {
-                if (m_gameObject.GetComponent<MeshRenderer>().material.color != Color.white)
-                {
-                    m_gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
-                }
-            }
-                
-            
-            m_reset_colour = false;
-        }
-
+      
         if (m_gameObject)
         {
             if (m_gameObject == null)
