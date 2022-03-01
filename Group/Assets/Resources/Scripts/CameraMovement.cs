@@ -46,7 +46,7 @@ public class CameraMovement : MonoBehaviour
              }*/
             //east = 40.5 , west = -40.5 south = -57.3 or 57.3
             float testing = Camera.main.transform.rotation.y*180/Mathf.PI;
-            if (testing<90.5)
+            if (testing>-40.5)
             {
                 float tiltAroundY = m_test * smmoth;
 

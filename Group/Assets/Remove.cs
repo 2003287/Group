@@ -9,15 +9,13 @@ public class Remove : MonoBehaviour
     void Start()
     {
         m_testing = false;
+        Debug.Log("remove has spawned in yoo");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_testing)
-        {
-            
-        }
+       
     }
 
     public void Testing()
@@ -25,5 +23,10 @@ public class Remove : MonoBehaviour
 
         Debug.Log("this Remove has been pressed");
         m_testing = true;
+    }
+
+    public void testing()
+    {
+        Debug.Log("this is testing");
     }
 }
