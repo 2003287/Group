@@ -67,7 +67,22 @@ public class cursorpressed : MonoBehaviour
                     Debug.Log(Input.mousePosition.x);
                     Debug.Log(Input.mousePosition.y);
                     m_ray_hit = true;
+<<<<<<< Updated upstream
                     m_reset_colour = true;
+=======
+
+                    if (hit.collider.CompareTag("Clickable"))
+                    {
+                        //get the game object and send a message to the gameobject
+                        m_gameObject = GameObject.Find(m_hitstring);
+                        m_gameObject.transform.SendMessage("Testvoid");
+                    }
+                    else if (hit.collider.CompareTag("Popped"))
+                    {
+                        m_gameObject = GameObject.Find(m_hitstring);
+                    }
+
+>>>>>>> Stashed changes
                 }
                 else
                 {

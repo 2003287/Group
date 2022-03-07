@@ -49,9 +49,40 @@ public class player : MonoBehaviour
                 GameObject g = Instantiate(m_gameobject[i], positions[test], Quaternion.identity);
                 m_testing.Add(g);
                 Debug.Log("happens");
+<<<<<<< Updated upstream
                 }
 
             
+=======
+                //activate a void or function to go to activate the score page
+            }
+        }
+
+       
+
+    }
+
+    //check if object is destroyed
+    private void ObjectCheck()
+    {
+        //small gameobjects
+        foreach (GameObject go in m_small_gameobjects)
+        {
+           if (go == null)
+            {
+               m_small_gameobjects.Remove(go);       
+               break;
+             }          
+        }
+       
+        foreach (GameObject go in m_buttons)
+        {
+            if (go == null)
+            {
+                m_buttons.Remove(go);
+                break;
+            }
+>>>>>>> Stashed changes
         }
         
     }
@@ -63,7 +94,27 @@ public class player : MonoBehaviour
             Destroy(gameobjectremove.gameObject);           
         }
 
+<<<<<<< Updated upstream
         m_testing.Clear();
+=======
+        m_small_gameobjects.Clear();
+    }
+
+   public void CreateButtons(GameObject Touchedobject) 
+    {
+        Debug.Log("this will spawn a button");
+        if (m_buttons.Count < 1)
+        {
+            m_buttons.Add(Instantiate(Resources.Load("Button/Canvas") as GameObject));
+            m_buttons[0].GetComponent<ButtonSpawn>().AttachedObject(Touchedobject);
+            Debug.Log(Touchedobject);
+        }
+        else
+        { 
+          //destroy the button on the screen and do stuff
+         
+        }
+>>>>>>> Stashed changes
     }
 }
 
