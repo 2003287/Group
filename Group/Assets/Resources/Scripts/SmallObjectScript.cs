@@ -74,9 +74,11 @@ public class SmallObjectScript : MonoBehaviour
         m_timer_varible = time;
         m_finished = true;
     }
+
     void Delete()
     {
         Destroy(this.gameObject);
     }
+
 
 }
