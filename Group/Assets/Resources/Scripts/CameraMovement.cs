@@ -79,7 +79,7 @@ public class CameraMovement : MonoBehaviour
             //rotation one is Quaternion.Euler(0.0f,-30.0f,0.0f);
             //position 2 is vector3(3.65,1,-1.8);
             //rotation 2 is Quaternion.Euler(0.0f,-60.0f,0.0f);
-            //position3 is vector3(10,1.0,-3.5);
+            //position3 is vector3(2,1.5,-1.5);
             //rotation3 is Quaternion.Euler(0.0f,-135.0f,0.0f);
             //east = 40.5 , west = -40.5 south = -57.3 or 57.3
             /* float testing = Camera.main.transform.rotation.y*180/Mathf.PI;
