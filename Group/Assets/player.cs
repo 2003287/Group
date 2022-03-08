@@ -76,8 +76,8 @@ public class player : MonoBehaviour
                 {
 
                 int test = Random.Range(0, 3);
-                GameObject g = Instantiate(m_gameobject[i], positions[test], Quaternion.identity);
-                m_testing.Add(g);
+                GameObject g = Instantiate(m_small_loadobject[i], positions[test], Quaternion.identity);
+                m_small_gameobjects.Add(g);
                 Debug.Log("happens");
 
                 }
@@ -144,7 +144,7 @@ public class player : MonoBehaviour
         }
 
 
-        m_testing.Clear();
+       
 
         m_small_gameobjects.Clear();
     }
@@ -165,10 +165,10 @@ public class player : MonoBehaviour
          
         }
 
-        }
+    }
         
 
-    }
+    
 }
 
 

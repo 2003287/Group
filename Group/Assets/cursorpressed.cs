@@ -64,7 +64,7 @@ public class cursorpressed : MonoBehaviour
                     //bools for the hit result
                     m_ray_hit = true;
 
-                    m_reset_colour = true;
+                    
 
 
                     if (hit.collider.CompareTag("Clickable"))
