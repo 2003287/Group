@@ -40,8 +40,14 @@ public class ButtonSpawn : MonoBehaviour
         }        
     }
 
+    public void tester()
+    {
+        m_gameobject = null;
+        Debug.Log("the ignore button has been pressed");
+    }
     public void Deletion()
     {
+        Debug.Log("the ignore button has been pressed");
         foreach (GameObject go in m_buttons)
         {
             go.SendMessage("Delete");

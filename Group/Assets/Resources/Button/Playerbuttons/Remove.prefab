@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3409989540478546479}
   - component: {fileID: 3409989540478546472}
   - component: {fileID: 3409989540478546473}
-  - component: {fileID: -2162321247755815753}
+  - component: {fileID: 125923322707346772}
   m_Layer: 5
   m_Name: Remove
   m_TagString: button
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2162321247755815753}
+      - m_Target: {fileID: 125923322707346772}
         m_TargetAssemblyTypeName: Remove, Assembly-CSharp
         m_MethodName: testing
         m_Mode: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-2162321247755815753
+--- !u!114 &125923322707346772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3409989540478546475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7064b461731b0f40aac4ed344c15c34, type: 3}
+  m_Script: {fileID: 11500000, guid: 97d6616f914a41d49b06e5c1b259c633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3409989540532955568
