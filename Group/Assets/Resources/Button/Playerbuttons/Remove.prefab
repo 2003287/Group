@@ -124,11 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -2162321247755815753}
         m_TargetAssemblyTypeName: Remove, Assembly-CSharp
-
         m_MethodName: testing
-
-       
-
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

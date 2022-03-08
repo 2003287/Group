@@ -19,18 +19,13 @@ public class ButtonSpawn : MonoBehaviour
         }
         foreach (GameObject go in m_buttons)
         {
-
             
             go.gameObject.SendMessage("Testing",game);
-
-          
-
         }
     }
     // Update is called once per frame
     void Update()
     {
-
         if (m_gameobject == null)
         {
             Debug.Log("the object is null now to remove");
@@ -55,6 +50,5 @@ public class ButtonSpawn : MonoBehaviour
         }
 
         Destroy(this.gameObject);
-
     }
 }

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-
     enum Cameraposition {POSITION1, POSITION2,POSITION3 };
-
     // Start is called before the first frame update
     public float m_speed = 0.01f;
     
     private bool m_testing = false;
     private float m_test= 0.0f;
-
     private Cameraposition m_camposState;
     float smmoth = 1.0f;
 
@@ -61,7 +58,6 @@ public class CameraMovement : MonoBehaviour
         m_camposState = Cameraposition.POSITION1;
         m_testing = false;
         Switchstate(m_camposState);
-
     }
 
     // Update is called once per frame
@@ -74,7 +70,6 @@ public class CameraMovement : MonoBehaviour
             Debug.Log("four");
            
         }
-
 
       
         if (m_testing == true)
@@ -101,7 +96,6 @@ public class CameraMovement : MonoBehaviour
             if (this.transform.rotation.y != -0.3)
             {
                 this.transform.rotation = Quaternion.Euler(0.0f,-30.0f,0.0f);
-
             }
            // Debug.Log(testing);
            
