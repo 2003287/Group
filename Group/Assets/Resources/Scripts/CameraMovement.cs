@@ -32,18 +32,22 @@ public class CameraMovement : MonoBehaviour
             case Cameraposition.POSITION2:
                 if (!m_testing)
                 {
-                    Vector3 pos = new Vector3(10, 1, -3.5f);
+                    //position 2 is vector3(3.65,1,-1.8);
+                    //rotation 2 is Quaternion.Euler(0.0f,-60.0f,0.0f);
+                    Vector3 pos = new Vector3(3.65f, 1, -1.8f);
                     this.transform.position = pos;
-                    this.transform.rotation = Quaternion.Euler(0.0f, -30.0f, 0.0f);
+                    this.transform.rotation = Quaternion.Euler(0.0f, -60.0f, 0.0f);
                     m_testing = true;
                 }
                 break;
             case Cameraposition.POSITION3:
                 if (!m_testing)
                 {
-                    Vector3 pos = new Vector3(10, 1, -3.5f);
+                    //position3 is vector3(2,1.5,-1.5);
+                    //rotation3 is Quaternion.Euler(0.0f,-135.0f,0.0f);
+                    Vector3 pos = new Vector3(2, 1.5f, -1.5f);
                     this.transform.position = pos;
-                    this.transform.rotation = Quaternion.Euler(0.0f, -30.0f, 0.0f);
+                    this.transform.rotation = Quaternion.Euler(0.0f, -135.0f, 0.0f);
                     m_testing = true;
                 }
                 break;
@@ -65,16 +69,19 @@ public class CameraMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("g"))
         {
-            m_testing = true;
+            m_testing = false;
           
-            Debug.Log("four");
+           
            
         }
 
       
-        if (m_testing == true)
+        if (!m_testing == true)
         {
-
+            m_camposState = CamereSet(m_camposState);
+            Debug.Log(m_camposState);
+            Switchstate(m_camposState);
+           // m_testing = true;
             //position one is vector3(10,1,-3.5)
             //rotation one is Quaternion.Euler(0.0f,-30.0f,0.0f);
             //position 2 is vector3(3.65,1,-1.8);
@@ -91,15 +98,30 @@ public class CameraMovement : MonoBehaviour
 
                  Camera.main.transform.Rotate(0, tiltAroundY, 0);
                  m_test -= 0.5f;
-             }*/
-
-            if (this.transform.rotation.y != -0.3)
-            {
-                this.transform.rotation = Quaternion.Euler(0.0f,-30.0f,0.0f);
-            }
-           // Debug.Log(testing);
+             }*/       
            
         }
        
+    }
+
+
+    Cameraposition CamereSet(Cameraposition came)
+    {
+        Cameraposition localposition = Cameraposition.POSITION1;
+
+        if (came == Cameraposition.POSITION1)
+        {
+            localposition = Cameraposition.POSITION2;
+        }
+        else if (came == Cameraposition.POSITION2)
+        {
+            localposition = Cameraposition.POSITION3;
+        }
+        else if (came == Cameraposition.POSITION3)
+        {
+            localposition = Cameraposition.POSITION1;
+        }
+        Debug.Log(localposition);
+        return localposition;
     }
 }
