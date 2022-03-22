@@ -22,7 +22,8 @@ public class Remove : MonoBehaviour
     public void Testing(GameObject game)
     {
         m_gameobject = game;
-        Debug.Log("the objects name is" + m_gameobject);
+       // this.transform.position = new Vector3(-60,-135,0);
+       /* Debug.Log("the objects name is" + m_gameobject);
         RectTransform recttest = this.GetComponent<RectTransform>();
         Vector3 pos = new Vector3(m_gameobject.transform.position.x + movepos.x, m_gameobject.transform.position.y + movepos.y, m_gameobject.transform.position.z + movepos.z);
         Vector2 canpos;
@@ -32,7 +33,7 @@ public class Remove : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canrect, screen, null, out canpos);
 
         // recttest.localPosition = pos;
-        this.transform.localPosition = canpos;
+        this.transform.localPosition = canpos;*/
     }
 
     public void testing()
@@ -40,7 +41,10 @@ public class Remove : MonoBehaviour
         Debug.Log("this is testing");
         m_gameobject.SendMessage("Delete");
     }
-
+    public void Move()
+    {
+        this.transform.position = new Vector3(-500, 60, 60);
+    }
     void Delete()
     {
         Destroy(this.gameObject);

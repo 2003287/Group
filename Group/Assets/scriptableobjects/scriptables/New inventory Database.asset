@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0e908b6fa171a468afc952dd08b0b7, type: 3}
+  m_Name: New inventory Database
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: dca96ffe575a1f74892987506b6f7b83, type: 2}
+  - {fileID: 11400000, guid: 1fd9d468083396e48b9740abce7eccb7, type: 2}
+  - {fileID: 11400000, guid: 9d981b956f439b74299036b3d5cadc27, type: 2}
+  - {fileID: 11400000, guid: e51bfb91d33b590458f031ba76ec5384, type: 2}
+  - {fileID: 11400000, guid: 9a917aee1e0519c45998856c5fe9c739, type: 2}
+  - {fileID: 11400000, guid: b81952a94528db143975b01fa137ae76, type: 2}
+  - {fileID: 11400000, guid: 50347a2de6754be40bce531b9459b8cf, type: 2}
+  - {fileID: 11400000, guid: f26accdd7e44a914b8f1b41eda744109, type: 2}
+  - {fileID: 11400000, guid: 5a41e3d1f8dca764fb6ee4abdf9acfda, type: 2}
+  - {fileID: 11400000, guid: 8c16bb633eb2ead44a0f349e8d8bc763, type: 2}
+  - {fileID: 11400000, guid: d70d34bcd7ca4af438b916d220e9c7d3, type: 2}
+  - {fileID: 11400000, guid: 8786936804d7ee74ba477c54a0f9415f, type: 2}
+  - {fileID: 11400000, guid: 7ab24f911b19a6b4a9a81c7d2ff95d4f, type: 2}
+  - {fileID: 11400000, guid: af90bab23b64790469fbbe78c71179fd, type: 2}
+  - {fileID: 11400000, guid: aba5e80da37faed4d9760e3943a22794, type: 2}
+  - {fileID: 11400000, guid: 5c687d1053d49054ebc60fc25d543cc9, type: 2}
+  - {fileID: 11400000, guid: 9eb1cddd2d97a1c429a68949b0ff4efb, type: 2}
+  - {fileID: 11400000, guid: f71ead9f497b7be42a9afe92186bec0e, type: 2}
+  - {fileID: 11400000, guid: e8b9e973b3f422044bd01dec26048052, type: 2}
+  - {fileID: 11400000, guid: 1ceb81f59bbc8054cb5a860a0b098a84, type: 2}
+  - {fileID: 11400000, guid: 122af2ece27d6684fad0d275cfad25a2, type: 2}
+  - {fileID: 11400000, guid: a6b7cee325dcb05468a73cb7fcdd7e5d, type: 2}
