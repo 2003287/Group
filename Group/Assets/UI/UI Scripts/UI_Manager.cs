@@ -38,7 +38,7 @@ public class UI_Manager : MonoBehaviour
         }
         if (energyRatingText)
         {
-            energyRatingText.text = energyRating.ToString() + "/61";
+            energyRatingText.text = energyRating.ToString() + "/61"; 
         }
         
     }

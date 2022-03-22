@@ -11,7 +11,7 @@ public class SmallObjectScript : MonoBehaviour
     //timer
     private float m_timer_varible;
     private float m_Colour_back;
-
+    
     //enum for clicked
     enum PoppingState {Notpopped,Popped };
     private PoppingState m_popState;

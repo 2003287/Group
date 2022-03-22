@@ -3999,7 +3999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 469899620}
-  energyRatingText: {fileID: 0}
+  energyRatingText: {fileID: 469899620}
   HUD: {fileID: 39631157}
   moneyAmount: 0
   energyRating: 0
