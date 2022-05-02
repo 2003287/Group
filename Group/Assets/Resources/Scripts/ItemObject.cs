@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public enum RoomType
@@ -23,5 +24,9 @@ public abstract class ItemObject : ScriptableObject
     public GameObject gameObject;
     public ObjectType m_objectType;
     public Sprite m_sprite;
+    public Image image;
+    public float m_cost = 50.0f;
+    public float m_energyRating = 50.0f;
+    public int m_Behaviour = 0;
 
 }

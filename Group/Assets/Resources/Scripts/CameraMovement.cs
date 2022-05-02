@@ -7,11 +7,11 @@ public class CameraMovement : MonoBehaviour
     enum Cameraposition {POSITION1, POSITION2,POSITION3 };
     // Start is called before the first frame update
     public float m_speed = 0.01f;
-    
+    public Vector3 TestPositions = new Vector3(6.0f,2.0f,1.5f);
     private bool m_testing = false;
-    private float m_test= 0.0f;
+   // private float m_test= 0.0f;
     private Cameraposition m_camposState;
-    float smmoth = 1.0f;
+  //  float smmoth = 1.0f;
 
     // float tiltAngle = 90.0f;
     //public Transform m_camera;
@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour
             case Cameraposition.POSITION1:
                 if (!m_testing)
                 {
-                    Vector3 pos = new Vector3(10,1,-3.5f);
+                    Vector3 pos = TestPositions;//new Vector3(10,1,-3.5f);
                     this.transform.position = pos;
                     this.transform.rotation = Quaternion.Euler(0.0f,-30.0f,0.0f);
                     m_testing = true;
@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
                 {
                     //position 2 is vector3(3.65,1,-1.8);
                     //rotation 2 is Quaternion.Euler(0.0f,-60.0f,0.0f);
-                    Vector3 pos = new Vector3(3.65f, 1, -1.8f);
+                    Vector3 pos = new Vector3(3.0f, 1, -1.8f);
                     this.transform.position = pos;
                     this.transform.rotation = Quaternion.Euler(0.0f, -60.0f, 0.0f);
                     m_testing = true;

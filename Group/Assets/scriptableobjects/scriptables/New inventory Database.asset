@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New inventory Database
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: dca96ffe575a1f74892987506b6f7b83, type: 2}
+  - {fileID: 11400000, guid: 3ea965c9a0b8aa64db580790af71d389, type: 2}
   - {fileID: 11400000, guid: 1fd9d468083396e48b9740abce7eccb7, type: 2}
   - {fileID: 11400000, guid: 9d981b956f439b74299036b3d5cadc27, type: 2}
   - {fileID: 11400000, guid: e51bfb91d33b590458f031ba76ec5384, type: 2}
@@ -35,3 +35,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ceb81f59bbc8054cb5a860a0b098a84, type: 2}
   - {fileID: 11400000, guid: 122af2ece27d6684fad0d275cfad25a2, type: 2}
   - {fileID: 11400000, guid: a6b7cee325dcb05468a73cb7fcdd7e5d, type: 2}
+  - {fileID: 11400000, guid: 87e59738b30dafd4b9da8dde8cfbf9ca, type: 2}
+  - {fileID: 11400000, guid: 4659d72f5f9073c43a341bddc6b1159e, type: 2}
+  - {fileID: 11400000, guid: 0b68204e13d06254c8269835ac6b0aeb, type: 2}
+  - {fileID: 11400000, guid: de74ee345d623394e84f1409b25dc72a, type: 2}
+  - {fileID: 11400000, guid: d7219ed7cb6f65b43aab67eb6a6fcc32, type: 2}
+  - {fileID: 11400000, guid: 43a30c367182e1d4f85bae94ab4388de, type: 2}
+  - {fileID: 11400000, guid: 09bddd6e917371c479c5f922612fcd27, type: 2}
+  - {fileID: 11400000, guid: b3eaf0d599c6f61408124cfb375d8cf9, type: 2}
+  - {fileID: 11400000, guid: 189c5bb19aa9f074095c448760c15714, type: 2}
+  - {fileID: 11400000, guid: 7a10b9a0c9222af489f42f2ad4f47c84, type: 2}
+  - {fileID: 11400000, guid: 44b0cb150d8890c4da3e0b811d7ebb46, type: 2}
+  - {fileID: 11400000, guid: 0a0adf3cb1ee2c24095b9412fe4fd8cb, type: 2}
+  - {fileID: 11400000, guid: 246fc1fcc172e354087e3db9f311dec3, type: 2}
+  - {fileID: 11400000, guid: 689ccb3c2afd3b14089d2c262194f027, type: 2}

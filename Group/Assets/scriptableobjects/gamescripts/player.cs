@@ -14,14 +14,14 @@ public class player : MonoBehaviour
     private List<GameObject> m_small_loadobject;
     private List<GameObject> m_small_gameobjects;
     private List<GameObject> m_buttons;
-    private float m_GameTimer;
-    private bool m_levelOver;
+   // private float m_GameTimer;
+   // private bool m_levelOver;
     //objects
     private GameObject testing;
 
     //testing 
     // private bool m_testing;
-    private bool m_testing2;
+   // private bool m_testing2;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,11 +49,11 @@ public class player : MonoBehaviour
 
         //testing
         // m_testing = false;
-        m_testing2 = false;
+        //m_testing2 = false;
 
         //timer
-        m_GameTimer = 0.0f;
-        m_levelOver = false;
+        //m_GameTimer = 0.0f;
+       // m_levelOver = false;
         m_inventoryoObject.Setup();
        
     }
@@ -61,27 +61,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!m_levelOver)
-        {
-
-            //reset the positions
-            if (Input.GetButtonDown("Fire2"))
-            {
-                //clearing all of the object
-                Clearobjects();
-                //recreate the object on screen
-                for (int i = 0; i < 2; i++)
-                {
-
-                    int test = Random.Range(0, 3);
-                    GameObject g = Instantiate(m_small_loadobject[i], positions[test], Quaternion.identity);
-                    m_small_gameobjects.Add(g);
-                    Debug.Log("happens");
-
-
-                }
-            }
-        }
+       
 
 
 
@@ -110,7 +90,7 @@ public class player : MonoBehaviour
             if (go == null)
             {
                 m_buttons.Remove(go);
-                Debug.Log("the button has a null refference");
+              //  Debug.Log("the button has a null refference");
                 break;
             }
 
@@ -130,8 +110,8 @@ public class player : MonoBehaviour
 
     public void CreateButtons(GameObject Touchedobject)
     {
-        Debug.Log("this will spawn a button");
-        Debug.Log(Touchedobject);
+       // Debug.Log("this will spawn a button");
+      //  Debug.Log(Touchedobject);
         if (Touchedobject)
         {
             if (m_buttons.Count == 0)
@@ -152,7 +132,7 @@ public class player : MonoBehaviour
                 m_buttons[0].GetComponent<ButtonSpawn>().Deletion();
                 m_buttons.Clear();
 
-                Debug.Log("removal of buttons onscreen" + Touchedobject);
+              //  Debug.Log("removal of buttons onscreen" + Touchedobject);
             }
         }
     }

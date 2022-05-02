@@ -11,3 +11,5 @@ public class BedroomScript : ItemObject
         Debug.Log(m_roomtype);
     }
 }
+
+

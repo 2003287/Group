@@ -6,6 +6,7 @@ public class audiotester : MonoBehaviour
 {
     public GameObject m_tester;
     public AudioSource m_audio;
+    public AudioClip m_clip;
     int test = 0;
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,26 @@ public class audiotester : MonoBehaviour
     {
         if (m_tester.tag == "Popped" && test == 0)
         {
-            Debug.Log("sound should be playing");
-            m_audio.Play();
-            test++;
+            if (m_audio != null)
+            {
+                if (!m_audio.enabled)
+                {
+                    Debug.Log("sound should be playing");
+
+                }
+                else
+                {
+
+                    m_audio.Play();
+                    test++;
+                }
+            }
+            else
+            {
+                Debug.Log("WHY THE FUCK IS THE AUDIO NULL");
+            }
+          
+           
         }
         
     }

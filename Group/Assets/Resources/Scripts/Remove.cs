@@ -10,7 +10,7 @@ public class Remove : MonoBehaviour
     void Start()
     {
         
-        Debug.Log("remove has spawned in yoo");
+       // Debug.Log("remove has spawned in yoo");
     }
 
     // Update is called once per frame
@@ -40,6 +40,8 @@ public class Remove : MonoBehaviour
     {
         Debug.Log("this is testing");
         m_gameobject.SendMessage("Delete");
+        var test = GameObject.FindObjectOfType<Scoreboard>();
+        test.RemovalofObjects(m_gameobject);
     }
     public void Move()
     {

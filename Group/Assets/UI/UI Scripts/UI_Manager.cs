@@ -18,15 +18,14 @@ public class UI_Manager : MonoBehaviour
 
     public float moneyAmount;
     public float energyRating;
-
     // Start is called before the first frame update
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
         currentSceneName = currentScene.name;
         Time.timeScale = 1;
-        moneyAmount = 0;
-        energyRating = 41;
+        moneyAmount = SharedScoreVaribles.MoneyVarible;
+        energyRating = SharedScoreVaribles.energyRating;
     }
 
     // Update is called once per frame
@@ -40,7 +39,15 @@ public class UI_Manager : MonoBehaviour
         {
             energyRatingText.text = energyRating.ToString() + "/61"; 
         }
-        
+        if (moneyAmount != SharedScoreVaribles.MoneyVarible)
+        {
+            moneyAmount = SharedScoreVaribles.MoneyVarible;
+        }
+
+        if (energyRating != SharedScoreVaribles.energyRating)
+        {
+            energyRating = SharedScoreVaribles.energyRating;
+        }
     }
 
     public void OpenMenu(GameObject Menu)
@@ -61,6 +68,19 @@ public class UI_Manager : MonoBehaviour
         HUD.SetActive(true);
     }
 
+    public void LevelPause()
+    {
+        if (SharedScoreVaribles.Finishedlevel)
+        {
+            SharedScoreVaribles.Finishedlevel = false;
+        }
+        else
+        {
+            SharedScoreVaribles.Finishedlevel = true;
+        }
+        
+    }
+
     public void ButtonPress(string buttonName)
     {
         switch(buttonName)
@@ -71,14 +91,8 @@ public class UI_Manager : MonoBehaviour
             case "Restart":
                 SceneManager.LoadScene(currentSceneName);
                 break;
-            case "LevelSelect":
-                SceneManager.LoadScene("Level_Select");
-                break;
             case "EndLevel":
                 SceneManager.LoadScene("Score_Screen");
-                break;
-            case "Level1":
-                SceneManager.LoadScene("ss");
                 break;
             default:
                 print("No Button Selected");

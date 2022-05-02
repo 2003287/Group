@@ -16,14 +16,16 @@ public class InventoryoObject :ScriptableObject,ISerializationCallbackReceiver
         {
             if (m_container[i].m_item == item)
             {
-                m_container[i].AddAmount(amount);
+               // m_container[i].AddAmount(amount);
                 hasitem = true;
                 break;
             }
         }
         if (!hasitem)
         {
+           
             m_container.Add(new InventorySlot(m_database.m_getid[item],item,amount));
+
         }
     }
 
@@ -32,8 +34,24 @@ public class InventoryoObject :ScriptableObject,ISerializationCallbackReceiver
     {
         for (int i = 0; i < m_database.items.Length; i++)
         {
+            
             ItemObject item = m_database.m_getItem[i];
-            m_container.Add(new InventorySlot(m_database.m_getid[item],item,1));
+            var hasitem = false;
+            for (int j = 0; j < m_container.Count; j++)
+            {
+                if (m_container[j].m_item == item)
+                {
+                    // m_container[i].AddAmount(amount);
+                    hasitem = true;
+                    break;
+                }
+            }
+            if (!hasitem)
+            {
+                Debug.Log("Adding in a item");
+                m_container.Add(new InventorySlot(m_database.m_getid[item], item, 1));
+            }
+           
         }
     }
     public void OnAfterDeserialize()
@@ -72,8 +90,8 @@ public class InventoryoObject :ScriptableObject,ISerializationCallbackReceiver
             {
                 if (item.m_roomtype == m_container[i].m_item.m_roomtype)
                 {
-                    if(item.m_objectType == m_container[i].m_item.m_objectType)
-                    Debug.Log("there is an item in the container"+ m_container[i].m_item.gameObject);
+                  //  if(item.m_objectType == m_container[i].m_item.m_objectType)
+                   // Debug.Log("there is an item in the container"+ m_container[i].m_item.gameObject);
                 }
             }
 
