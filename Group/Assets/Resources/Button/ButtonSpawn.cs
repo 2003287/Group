@@ -123,15 +123,15 @@ public class ButtonSpawn : MonoBehaviour
                 UnityEngine.Events.UnityAction action = () => { NewBehaviour(testing); };
                 btn.onClick.AddListener(action);
 
-                button = DefaultControls.CreateButton(uires);
-                button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
-                button.transform.position = new Vector3(50 + (2 * 100), 50, button.transform.position.z);
-                button.GetComponentInChildren<Text>().text = "on";
-                button.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
-                 testing = 2;
-                btn = button.GetComponent<Button>();
-                action = () => { NewBehaviour(testing); };
-                btn.onClick.AddListener(action);
+                GameObject button2 = DefaultControls.CreateButton(uires);
+                button2.transform.SetParent(this.GetComponent<Canvas>().transform, true);
+                button2.transform.position = new Vector3(50 + (2 * 100), 50, button.transform.position.z);
+                button2.GetComponentInChildren<Text>().text = "on";
+                button2.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                 var testing2 = 2;
+                var btn2 = button2.GetComponent<Button>();
+                UnityEngine.Events.UnityAction action2 = () => { NewBehaviour(testing2); };
+                btn2.onClick.AddListener(action2);
 
             }
             else
@@ -146,10 +146,13 @@ public class ButtonSpawn : MonoBehaviour
 
     public void NewBehaviour(int newbehav)
     {
-        var touched = m_gameobject.GetComponent<item>().m_item.m_Behaviour;
-        touched = newbehav;
+        Debug.Log(newbehav);
+        m_gameobject.GetComponent<item>().m_item.m_Behaviour = newbehav;
 
         Debug.Log(m_gameobject.GetComponent<item>().m_item.m_Behaviour);
+        //scoreboard changing the behaviour
+        Deletion();
+
     }
 
     public void Testingbutton(ItemObject item)
