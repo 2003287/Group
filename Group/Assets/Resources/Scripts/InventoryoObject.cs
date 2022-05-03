@@ -48,7 +48,7 @@ public class InventoryoObject :ScriptableObject,ISerializationCallbackReceiver
             }
             if (!hasitem)
             {
-                Debug.Log("Adding in a item");
+                //Debug.Log("Adding in a item");
                 m_container.Add(new InventorySlot(m_database.m_getid[item], item, 1));
             }
            

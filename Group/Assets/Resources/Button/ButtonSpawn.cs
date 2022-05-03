@@ -98,10 +98,60 @@ public class ButtonSpawn : MonoBehaviour
 
             
            
+        }       
+    }
+
+
+    public void CreateBehaviourButtons()
+    {
+        //hides currentbuttons
+        Movebuttons();
+        var item = m_gameobject.GetComponent<item>();
+        if (item)
+        {
+            if (item.m_item.m_Behaviour != 0)
+            {
+                Debug.Log("the behaviour is hear");
+                DefaultControls.Resources uires = new DefaultControls.Resources();
+                GameObject button = DefaultControls.CreateButton(uires);
+                button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
+                button.transform.position = new Vector3(50 + (1 * 100), 50, button.transform.position.z);
+                button.GetComponentInChildren<Text>().text ="off";
+                button.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                var testing = 1;
+                var btn = button.GetComponent<Button>();
+                UnityEngine.Events.UnityAction action = () => { NewBehaviour(testing); };
+                btn.onClick.AddListener(action);
+
+                button = DefaultControls.CreateButton(uires);
+                button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
+                button.transform.position = new Vector3(50 + (2 * 100), 50, button.transform.position.z);
+                button.GetComponentInChildren<Text>().text = "on";
+                button.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                 testing = 2;
+                btn = button.GetComponent<Button>();
+                action = () => { NewBehaviour(testing); };
+                btn.onClick.AddListener(action);
+
+            }
+            else
+            {
+                Debug.Log("there is no behaviour on the object");
+            }
+        
         }
 
-       
     }
+
+
+    public void NewBehaviour(int newbehav)
+    {
+        var touched = m_gameobject.GetComponent<item>().m_item.m_Behaviour;
+        touched = newbehav;
+
+        Debug.Log(m_gameobject.GetComponent<item>().m_item.m_Behaviour);
+    }
+
     public void Testingbutton(ItemObject item)
     {
         //Debug.Log("the button created was pressed"+item);
