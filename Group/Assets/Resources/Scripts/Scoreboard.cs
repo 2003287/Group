@@ -56,13 +56,17 @@ public class Scoreboard : MonoBehaviour
     public Button Endbutton;
     void Start()
     {
+        //loading of the list and dictionary
         objectsinScene = new List<GameObject>();
         SwappedGameobjects = new List<GameObject>();
+        m_dictionary = new Dictionary<GameObject, bool>();
+        itemsBehaviour = new List<GameObject>();
+
+        //shared varibles setup
         SharedScoreVaribles.sharedFloat = 0.0f;
         scorecounter = SharedScoreVaribles.sharedFloat;
-        itemsBehaviour = new List<GameObject>();
         selectedobject = 0;
-        m_dictionary = new Dictionary<GameObject, bool>();
+        
         //score stuff
         Score_text.text = scorecounter.ToString();
        
@@ -91,6 +95,7 @@ public class Scoreboard : MonoBehaviour
     {
         if (!checkonce)
         {
+            //setup the items in the score screen
             testingvoid();
            // Debug.Log(scorecounter);
             checkonce = true;
@@ -108,13 +113,16 @@ public class Scoreboard : MonoBehaviour
     }
     void testingvoid()
     {
+        //find all the popable objects
         var listofgame = GameObject.FindGameObjectsWithTag("Clickable");
-
+        //loop through them
         for (int i = 0; i < listofgame.Length; i++)
         {
+            //check the number of objects
             scoretest++;
            // Debug.Log(listofgame[i].name);
             objectsinScene.Add(listofgame[i]);
+            //check the behaviours of the objects
             if (listofgame[i].GetComponent<item>().m_item.m_Behaviour == 0)
             {
                 Debug.Log("the dehaviour of the " + listofgame[i].name + "null");
@@ -122,6 +130,7 @@ public class Scoreboard : MonoBehaviour
             else
             {
                 Debug.Log("the dehaviour of the " + listofgame[i].name + "is active turn off the object");
+                //randomally select the behaviour of the object
                 listofgame[i].GetComponent<item>().m_item.m_Behaviour = Random.Range(1, 3);
                 Debug.Log(listofgame[i].GetComponent<item>().m_item.m_Behaviour);
             }
@@ -132,7 +141,7 @@ public class Scoreboard : MonoBehaviour
         //350/500
        // energyratingcalculater = energyratingcalculater / objectsinScene.Count;
         //Debug.Log(scoretest);
-
+        //etup the objects that need to be found
         for (int i = 0; i <= 4; i++)
         {
             SetupObjects(i);
