@@ -72,6 +72,9 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField]
     private Text grantNameLbl;
 
+    [SerializeField]
+    private GameObject button;
+
     //bool to allow the player to drag the option at the top
     private bool dragAllow; 
     void Start()
@@ -132,12 +135,14 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         levelOpen = levelAnimator.GetBool("Open");
         levelAnimator.SetBool("Open", !levelOpen);
+        button.SetActive(levelOpen);
     }
 
     public void Difficulty(string Level)
     {
         difficultyOpen = difficultyAnimator.GetBool("Open");
         difficultyAnimator.SetBool("Open", !difficultyOpen);
+        
 
         switch (Level)
         {
@@ -159,6 +164,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
                 break;
             case "Close":
                 difficultyBackground.SetActive(false);
+               
                 break;
             default:
                 print("No Button Selected");
