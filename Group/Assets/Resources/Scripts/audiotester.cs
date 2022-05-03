@@ -42,4 +42,9 @@ public class audiotester : MonoBehaviour
         }
         
     }
+
+    public void PlaySounds()
+    {
+        m_audio.Play();
+    }
 }
