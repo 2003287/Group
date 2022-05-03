@@ -48,7 +48,7 @@ public class audiotester : MonoBehaviour
         if (m_audio != null)
         {
             m_audio.Play();
-            Debug.Log(m_tester.name);
+            //Debug.Log(m_tester.name);
         }
            
     }

@@ -151,6 +151,7 @@ public class ButtonSpawn : MonoBehaviour
 
         Debug.Log(m_gameobject.GetComponent<item>().m_item.m_Behaviour);
         //scoreboard changing the behaviour
+        score.BehaviourChange(m_gameobject);
         Deletion();
 
     }
