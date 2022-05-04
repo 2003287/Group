@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7d6ddb4de3fc147baec5c709b91529, type: 3}
-  m_Name: oilheaterlow
+  m_Script: {fileID: 11500000, guid: fe1571ac16a55284fa57efe36430a886, type: 3}
+  m_Name: Ironmid
   m_EditorClassIdentifier: 
-  m_roomtype: 2
+  m_roomtype: 0
   m_prefab: {fileID: 3958566775274058129, guid: 0c5556b7bd9be084d8475162c63230a1, type: 3}
-  gameObject: {fileID: 1233847408217171951, guid: 46f46994357b6d448a643bfce792689e, type: 3}
-  m_objectType: 3
-  m_sprite: {fileID: 21300000, guid: a0723953877fadd419c956825ad125f7, type: 3}
+  gameObject: {fileID: 340244456025760384, guid: 20ad6b52e96333b428d2649401ee2a20, type: 3}
+  m_objectType: 2
+  m_sprite: {fileID: 21300000, guid: a24e372301c61004495881e3c6e95983, type: 3}
   image: {fileID: 0}
-  m_cost: 50
-  m_energyRating: 50
+  m_cost: 38
+  m_energyRating: 57
+  m_Behaviour: 0

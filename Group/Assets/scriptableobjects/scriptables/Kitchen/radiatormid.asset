@@ -18,5 +18,6 @@ MonoBehaviour:
   m_objectType: 1
   m_sprite: {fileID: 21300000, guid: 3715081ee6e63ca4b96d7ea1361dcea1, type: 3}
   image: {fileID: 0}
-  m_cost: 50
+  m_cost: 69
   m_energyRating: 57
+  m_Behaviour: 0
