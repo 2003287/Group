@@ -130,6 +130,9 @@ MonoBehaviour:
   timerImage: {fileID: 4169967420711055151}
   timerText: {fileID: 4169967421539610848}
   timesUp: {fileID: 0}
+  maxTimer: 120
+  scoreBase: {fileID: 0}
+  hideHUD: []
 --- !u!1 &4169967421283027504
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +274,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 88274e70d5265ba43b454bbca317ddbb, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
