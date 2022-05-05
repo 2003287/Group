@@ -28,6 +28,10 @@ public class MoveCamera : MonoBehaviour
         
     }
 
+    public int Getpos()
+    {
+        return currentPos;
+    }
     public void MoveCameraPos(int nextPos)
     {
         currentPos += nextPos;

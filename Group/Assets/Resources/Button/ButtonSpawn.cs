@@ -11,6 +11,9 @@ public class ButtonSpawn : MonoBehaviour
     public Vector3 positions = new Vector3(0.0f,0.0f,0.0f);
     public InventoryoObject m_inventoryoObject;
     private Scoreboard score;
+    
+    public Sprite behaviourimage;
+
     public void AttachedObject(GameObject game)
     {
         m_gameobject = game;
@@ -113,11 +116,18 @@ public class ButtonSpawn : MonoBehaviour
             {
                 Debug.Log("the behaviour is hear");
                 DefaultControls.Resources uires = new DefaultControls.Resources();
+                uires.standard = behaviourimage;
                 GameObject button = DefaultControls.CreateButton(uires);
                 button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
-                button.transform.position = new Vector3(50 + (1 * 100), 50, button.transform.position.z);
-                button.GetComponentInChildren<Text>().text ="off";
-                button.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                button.transform.position = new Vector3(80 + (1 * 100), 40, button.transform.position.z);
+                
+                if (behaviourimage)
+                {
+                    Debug.Log("image should apper");
+                }
+                Debug.Log("image is wrong");
+                button.GetComponentInChildren<Text>().text ="OFF";
+                button.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
                 var testing = 1;
                 var btn = button.GetComponent<Button>();
                 UnityEngine.Events.UnityAction action = () => { NewBehaviour(testing); };
@@ -125,9 +135,10 @@ public class ButtonSpawn : MonoBehaviour
 
                 GameObject button2 = DefaultControls.CreateButton(uires);
                 button2.transform.SetParent(this.GetComponent<Canvas>().transform, true);
-                button2.transform.position = new Vector3(50 + (2 * 100), 50, button.transform.position.z);
-                button2.GetComponentInChildren<Text>().text = "on";
-                button2.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+                button2.transform.position = new Vector3(130 + (2 * 100), 40, button.transform.position.z);
+                button2.GetComponentInChildren<Text>().text = "ON";
+            
+                button2.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
                  var testing2 = 2;
                 var btn2 = button2.GetComponent<Button>();
                 UnityEngine.Events.UnityAction action2 = () => { NewBehaviour(testing2); };
@@ -163,7 +174,14 @@ public class ButtonSpawn : MonoBehaviour
 
      var testgame =  Instantiate(item.gameObject,m_gameobject.transform.position,Quaternion.identity);
         SharedScoreVaribles.MoneyVarible -= item.m_cost;
+        if (m_gameobject.GetComponent<item>().m_item.m_Behaviour != 0)
+        {
+            testgame.GetComponent<item>().m_item.m_Behaviour = m_gameobject.GetComponent<item>().m_item.m_Behaviour;
+            Debug.Log(testgame.GetComponent<item>().m_item.m_Behaviour);
+        }
+        
         score.NewInstance(m_gameobject,testgame);
+
         m_gameobject.SendMessage("Delete");
 
     }

@@ -105,7 +105,7 @@ public class Scoreboard : MonoBehaviour
         if (text_change)
         {
             GetScore();
-            Debug.Log(SharedScoreVaribles.sharedFloat);          
+            //Debug.Log(SharedScoreVaribles.sharedFloat);          
         }
         if (energyratingcalculater >= 61)
         {
@@ -127,7 +127,7 @@ public class Scoreboard : MonoBehaviour
             //check the behaviours of the objects
             if (listofgame[i].GetComponent<item>().m_item.m_Behaviour == 0)
             {
-                Debug.Log("the dehaviour of the " + listofgame[i].name + "null");
+              //Debug.Log("the dehaviour of the " + listofgame[i].name + "null");
             }
             else
             {
@@ -157,9 +157,21 @@ public class Scoreboard : MonoBehaviour
    private float EnergyCalcNorm()
     {
         float testing = 0.0f;
+        float badbehaviour = 0.8f;
+        Debug.Log(testing);
         for (int i = 0; i < energyItems.Count; i++)
         {
-            testing += energyItems[i].GetComponent<item>().m_item.m_energyRating;
+
+            if (energyItems[i].GetComponent<item>().m_item.m_Behaviour == 2)
+            {
+                testing += (energyItems[i].GetComponent<item>().m_item.m_energyRating*badbehaviour);
+                Debug.Log(energyItems[i].GetComponent<item>().m_item.m_energyRating * badbehaviour);
+            }
+            else
+            {
+                testing += energyItems[i].GetComponent<item>().m_item.m_energyRating;
+                Debug.Log(energyItems[i]);
+            }
            // Debug.Log(energyItems[i]);
         }
         Debug.Log(testing);
@@ -244,17 +256,33 @@ public class Scoreboard : MonoBehaviour
                 }
                     else
                     {
+                    var item = game.GetComponent<item>();
+                    if (!itemsBehaviour.Contains(game))
+                    {
                         if (scorecounter > 50)
                         {
                             scorecounter -= 50.0f;
-
+                        }
                         
+                        Debug.Log("Work damit as INTENDED");
+                        moneyEarnt -= item.m_item.m_cost / 2.0f;
+                        timerfloat += 0.1f;
                     }
-                    var item = game.GetComponent<item>();
-                    Debug.Log("Work damit as INTENDED");
-                    moneyEarnt -= item.m_item.m_cost/2.0f;
-                    timerfloat += 0.1f;
-                    Debug.Log(timerfloat);
+                    else
+                    {
+                        if (item.m_item.m_Behaviour == 1)
+                        {
+                            if (scorecounter > 50)
+                            {
+                                scorecounter -= 50.0f;
+                            }
+
+                            Debug.Log("Work damit as INTENDED");
+                            moneyEarnt -= item.m_item.m_cost / 2.0f;
+                            timerfloat += 0.1f;
+                        }                        
+                    }
+                    
                 }
 
                // Debug.Log(SharedScoreVaribles.timerVarible);
@@ -330,14 +358,18 @@ public class Scoreboard : MonoBehaviour
         {
             if (itemsBehaviour.Contains(game))
             {
-                for (int i = 0; i < itemsBehaviour.Count; i++)
+                if (game.GetComponent<item>().m_item.m_Behaviour == 1)
                 {
-                    if (itemsBehaviour[i] = game)
-                    {
-                        if (itemsBehaviour[i].GetComponent<item>().m_item.m_Behaviour != game.GetComponent<item>().m_item.m_Behaviour)
-                            Debug.Log("just a check to see if this happens");
-                    }
+                    moneyEarnt += 30;
+                    Debug.Log("offff");
                 }
+                else
+                {
+                    moneyEarnt -= 30;
+                    Debug.Log("onnnn");
+                }
+                energyratingcalculater = EnergyCalcNorm();
+                GetScore();
             }
         }
     }
@@ -368,6 +400,7 @@ public class Scoreboard : MonoBehaviour
         }
         
         objectsinScene.Add(item.gameObject);
+        Debug.Log(item.gameObject.GetComponent<item>().m_item.m_Behaviour);
         GetScore();
         Debug.Log(item.gameObject);
       //  Debug.Log("was removed from the list new size " + objectsinScene.Count);

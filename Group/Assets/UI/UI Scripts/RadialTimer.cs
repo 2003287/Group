@@ -37,7 +37,7 @@ public class RadialTimer : MonoBehaviour
        
         timer_var = SharedScoreVaribles.timerVarible;
         scoreboard = GameObject.FindObjectOfType<Scoreboard>();
-        Debug.Log(scoreboard);
+      //Debug.Log(scoreboard);
     }
 
     // Update is called once per frame
