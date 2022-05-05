@@ -7,14 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1207917232613815646, guid: 4f9e0c6bcfe60ea418ba7edea2ba47b0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3369316746193770658, guid: 150759a650dc89646ac27e9d8dd508ec, type: 3}
     - target: {fileID: 1478081558468188297, guid: 4f9e0c6bcfe60ea418ba7edea2ba47b0, type: 3}
       propertyPath: m_item
       value: 
       objectReference: {fileID: 11400000, guid: af90bab23b64790469fbbe78c71179fd, type: 2}
+    - target: {fileID: 1734619015572624520, guid: 4f9e0c6bcfe60ea418ba7edea2ba47b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1800874759774750053, guid: 4f9e0c6bcfe60ea418ba7edea2ba47b0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 07fb7a389cbe3844d9f47d602c5671f0, type: 2}
+      objectReference: {fileID: 2100000, guid: dc96dedc990787c4cb911a83bec2ba50, type: 2}
     - target: {fileID: 4220132488305123438, guid: 4f9e0c6bcfe60ea418ba7edea2ba47b0, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   m_prefab: {fileID: 4756584838977562507, guid: 55262b6915924f64880294180a0c8385, type: 3}
   gameObject: {fileID: 7691500839686583469, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
   m_objectType: 0
-  m_sprite: {fileID: 21300000, guid: 3ce6b9290c10003449b00a7860c87148, type: 3}
+  m_sprite: {fileID: 21300000, guid: 9233e54048c34b64f882efa3bd6a1969, type: 3}
   image: {fileID: 0}
   itemroom: 1
   m_cost: 210
