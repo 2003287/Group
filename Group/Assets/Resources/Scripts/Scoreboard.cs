@@ -13,8 +13,8 @@ public class SharedScoreVaribles
     public static float timerVarible;
     //have bools for grants and other items
     public static bool Finishedlevel;
-
-
+    public static int firsttimeint;
+    public static bool firsttime;
     public static bool playerSetup;
 
     //setting up the varibles
@@ -87,7 +87,12 @@ public class Scoreboard : MonoBehaviour
         if (!SharedScoreVaribles.moneyset)
         {
             SharedScoreVaribles.MoneyVarible = 700.0f;
+            SharedScoreVaribles.firsttime = false;
+            SharedScoreVaribles.firsttimeint = 0;
             SharedScoreVaribles.moneyset = true;
+           
+
+
 
         }
 
@@ -125,6 +130,7 @@ public class Scoreboard : MonoBehaviour
         }
 
     }
+    
     void testingvoid()
     {
         //find all the popable objects
@@ -136,7 +142,7 @@ public class Scoreboard : MonoBehaviour
             scoretest++;
            // Debug.Log(listofgame[i].name);
             objectsinScene.Add(listofgame[i]);
-           
+            Debug.Log(listofgame[i].name + i);
             //check the behaviours of the objects
             if (listofgame[i].GetComponent<item>().m_item.m_Behaviour == 0)
             {
@@ -158,13 +164,42 @@ public class Scoreboard : MonoBehaviour
                // energyratingcalculater += testing.m_item.m_energyRating;
         }
         //350/500
-       // energyratingcalculater = energyratingcalculater / objectsinScene.Count;
+        // energyratingcalculater = energyratingcalculater / objectsinScene.Count;
         //Debug.Log(scoretest);
         //etup the objects that need to be found
-        for (int i = 0; i <= 4; i++)
+
+        if (SharedScoreVaribles.firsttime)
         {
-            SetupObjects(i);
+            for (int i = 0; i <= 4; i++)
+            {
+                SetupObjects(i);
+            }
         }
+        else
+        {
+            // 1 games console 4 radioalarm, kettle 7, 6 razor, 2
+            //games
+            m_dictionary.Add(objectsinScene[1], false);
+            energyItems.Add(objectsinScene[1]);
+            objectsinScene[1].GetComponent<MeshRenderer>().material.color = Color.yellow;
+            //alarm
+            m_dictionary.Add(objectsinScene[4], false);
+            energyItems.Add(objectsinScene[4]);
+            objectsinScene[4].GetComponent<MeshRenderer>().material.color = Color.yellow;
+            //kettle
+            m_dictionary.Add(objectsinScene[7], false);
+            energyItems.Add(objectsinScene[7]);
+            objectsinScene[7].GetComponent<MeshRenderer>().material.color = Color.yellow;
+            //razor
+            m_dictionary.Add(objectsinScene[6], false);
+            energyItems.Add(objectsinScene[6]);
+            objectsinScene[6].GetComponent<MeshRenderer>().material.color = Color.yellow;
+            //iron
+            m_dictionary.Add(objectsinScene[0], false);
+            energyItems.Add(objectsinScene[0]);
+            objectsinScene[0].GetComponent<MeshRenderer>().material.color = Color.yellow;
+        }
+        
         energyratingcalculater = EnergyCalcNorm();
         GetScore();
 
@@ -175,9 +210,12 @@ public class Scoreboard : MonoBehaviour
         float testing = 0.0f;
         float badbehaviour = 0.8f;
         Debug.Log(testing);
+        Debug.Log(energyItems.Count);
+       
         for (int i = 0; i < energyItems.Count; i++)
         {
-
+            Debug.Log(i);
+            Debug.Log(energyItems[i].name);
             if (energyItems[i].GetComponent<item>().m_item.m_Behaviour == 2)
             {
                 testing += (energyItems[i].GetComponent<item>().m_item.m_energyRating*badbehaviour);
@@ -332,13 +370,15 @@ public class Scoreboard : MonoBehaviour
         Debug.Log(game);
         energyItems.Remove(game);
         energyItems.Add(item);
+
         //behaviour check
         if (game.GetComponent<item>().m_item.m_Behaviour != 0)
         {
             item.GetComponent<item>().m_item.m_Behaviour = game.GetComponent<item>().m_item.m_Behaviour;
             Debug.Log(item.GetComponent<item>().m_item.m_Behaviour);
         }
-
+        Debug.Log(game.name);
+        Debug.Log(item.name);
         testing = EnergyCalcNorm();
        // Debug.Log("THE NEW ENERGY RATING" + testing.ToString());
         //testing -= game.GetComponent<item>().m_item.m_energyRating;
@@ -357,6 +397,8 @@ public class Scoreboard : MonoBehaviour
         scorescreen_time.text = timer.ToString() + " s";
         scorescreen_earnt.text = moneyEarnt.ToString();
         scorescreen_mod.text = timerfloat.ToString();
+        SharedScoreVaribles.firsttime = true;
+        SharedScoreVaribles.firsttimeint = 1;
         Scorecalc(timer);
         scorescreen_score.text = moneyEarnt.ToString();
         if (moneyEarnt > 0)
@@ -417,6 +459,12 @@ public class Scoreboard : MonoBehaviour
               //  Debug.Log("THIS WAS TESTED OUT TO WORK");
                 energyratingcalculater =Energycreater(game,item);
                 SwappedGameobjects.Add(item);
+
+                if (itemsBehaviour.Contains(game))
+                {                   
+                    itemsBehaviour.Add(item);
+                    itemsBehaviour.Remove(game);
+                }
             }
 
             if (SwappedGameobjects.Contains(game))
@@ -427,11 +475,7 @@ public class Scoreboard : MonoBehaviour
                 SwappedGameobjects.Remove(game);
             }
 
-            if (itemsBehaviour.Contains(game))
-            {
-                itemsBehaviour.Add(item);
-                itemsBehaviour.Remove(game);
-            }
+           
             objectsinScene.Remove(game);
            // Debug.Log("was removed from the list new size "+ objectsinScene.Count);
         }

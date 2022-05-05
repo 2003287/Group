@@ -86,8 +86,19 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         if (!SharedScoreVaribles.moneyset)
         {
             SharedScoreVaribles.MoneyVarible = 700.0f;
+            SharedScoreVaribles.firsttime = false;
+            SharedScoreVaribles.firsttimeint = 0;
             SharedScoreVaribles.moneyset = true;
 
+
+        }
+
+        if (SharedScoreVaribles.firsttimeint > 1)
+        {
+            if (SharedScoreVaribles.firsttime != true)
+            {
+                SharedScoreVaribles.firsttime = true;
+            }
         }
         dragAllow = false;
     }

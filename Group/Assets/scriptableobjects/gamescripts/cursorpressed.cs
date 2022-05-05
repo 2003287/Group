@@ -19,7 +19,9 @@ public class cursorpressed : MonoBehaviour
     private bool m_ray_hit;
     //string for the gameobject
     private string m_hitstring;
-   
+
+    //touching
+
 
     //the private gameobject
     private GameObject m_gameObject;
@@ -36,7 +38,7 @@ public class cursorpressed : MonoBehaviour
        
         SharedScoreVaribles.Finishedlevel = false;
     }
-
+    
     void ChangeColour()
     {
         m_player = GameObject.FindGameObjectWithTag("PLayerController").GetComponent<player>();
@@ -138,6 +140,9 @@ public class cursorpressed : MonoBehaviour
                 //  Debug.Log("whats wrong with you");
 
             }
+
+            
+
             //if the timer is after 3
             if (timer >= 3.0)
             {
@@ -155,7 +160,95 @@ public class cursorpressed : MonoBehaviour
             }
 
 
-            //switch colour back to white
+            //mouse controlls
+            if (Input.touchCount > 0)
+            {
+
+                Touch touch = Input.GetTouch(0);
+                if (!m_ray_hit)
+                {
+                    //reseting the timer
+                    m_resettimer = false;
+                    
+                    //ray from the mouse position to the point in screen space
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    //the resulting hit from the ray
+                    RaycastHit hit;
+                    //should draw the ray on screen it doesn't but oh well
+                    Debug.DrawRay(ray.origin, ray.direction, Color.green, 0.5f);
+                    //if there is a hit from the ray cast
+                    if (Physics.Raycast(ray, out hit, 1000))
+                    {
+                        //get the strign name of the gameobject
+                        m_hitstring = hit.transform.name;
+                        //debug log of the ray for testing
+                        //Debug.Log(hit.transform.name);
+                        // Debug.Log("hit");
+                        // Debug.Log(Input.mousePosition.x);
+                        // Debug.Log(Input.mousePosition.y);
+                        //bools for the hit result
+                        m_ray_hit = true;
+
+                        if (hit.collider.CompareTag("Clickable"))
+                        {
+
+                            m_gameObject = GameObject.Find(m_hitstring);
+                            Debug.Log(m_gameObject);
+                            m_gameObject.SendMessage("Testvoid");
+                            score.GameObjectPopped(m_gameObject);
+                        }
+                        else if (hit.collider.CompareTag("Popped"))
+                        {
+                            m_gameObject = GameObject.Find(m_hitstring);
+                            // Debug.Log(m_gameObject);
+                        }
+                        else
+                        {
+                            m_ray_hit = false;
+                        }
+
+                    }
+                    //no hit
+                    else
+                    {
+                        m_ray_hit = false;
+                    }
+
+
+                }
+
+                //holding
+                //timer increases
+                if (touch.phase == TouchPhase.Stationary)
+                {
+                    timer += Time.deltaTime;
+                }
+               
+
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    if (!m_resettimer && m_ray_hit)
+                    {
+
+
+                        if (m_gameObject && m_gameObject.CompareTag("Popped"))
+                        {
+                            //  Debug.Log(m_gameObject);
+                            m_gameObject.SendMessage("TimerSetting", timer);
+                            // Debug.Log("has this happened");
+                            m_player.CreateButtons(m_gameObject);
+                        }
+                        timer = 0;
+                        m_resettimer = true;
+                        m_ray_hit = false;
+
+
+                        // Debug.Log("whats wrong with you");
+                    }
+                }
+
+               
+            }
 
 
 
