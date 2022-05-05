@@ -224,8 +224,8 @@ MonoBehaviour:
   m_tester: {fileID: 4780486336446468394}
   m_audio: {fileID: 2004800094954006610}
   m_clip: {fileID: 0}
-  m_cameraholder: {fileID: 0}
-  type: 0
+  m_cameraholder: {fileID: 8650822317880492227, guid: 6bc9d6540640fb44e9ac2527178bd308, type: 3}
+  type: 1
 --- !u!65 &7820415521487917506
 BoxCollider:
   m_ObjectHideFlags: 0

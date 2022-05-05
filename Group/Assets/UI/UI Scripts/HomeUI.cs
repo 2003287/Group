@@ -85,7 +85,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         Time.timeScale = 1;
         if (!SharedScoreVaribles.moneyset)
         {
-            SharedScoreVaribles.MoneyVarible = 400.0f;
+            SharedScoreVaribles.MoneyVarible = 700.0f;
             SharedScoreVaribles.moneyset = true;
 
         }

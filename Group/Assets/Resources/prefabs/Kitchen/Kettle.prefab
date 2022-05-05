@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5467971855421869755}
   - component: {fileID: 5467971855421869752}
   - component: {fileID: 5467971855421869753}
-  - component: {fileID: 5467971855421869750}
   - component: {fileID: 5467971855421869751}
   - component: {fileID: 5467971855421869748}
   - component: {fileID: 7341257865266018422}
   - component: {fileID: 6284672928892180701}
+  - component: {fileID: 6187947280226483634}
   m_Layer: 0
   m_Name: Kettle
   m_TagString: Untagged
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5467971855421869750
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467971855421869749}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.426914, y: 0.431016, z: 0.426914}
-  m_Center: {x: 0, y: 0.21755101, z: 0}
 --- !u!114 &5467971855421869751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +222,18 @@ MonoBehaviour:
   m_tester: {fileID: 5467971855421869749}
   m_audio: {fileID: 7341257865266018422}
   m_clip: {fileID: 0}
+  m_cameraholder: {fileID: 8650822317880492227, guid: 6bc9d6540640fb44e9ac2527178bd308, type: 3}
+  type: 1
+--- !u!65 &6187947280226483634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467971855421869749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.594446, y: 0.831592, z: 0.695875}
+  m_Center: {x: 0, y: 0.415796, z: 0.027042508}

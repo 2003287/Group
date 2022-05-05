@@ -87,9 +87,9 @@ public class audiotester : MonoBehaviour
                 {
                     if (item.m_item.m_Behaviour == 2)
                     {
-                        if (m_audio.volume != 0.2f)
+                        if (m_audio.volume != 0.1f)
                         {
-                            m_audio.volume = 0.2f;
+                            m_audio.volume = 0.1f;
                         }
                         if (!m_audio.loop)
                         {

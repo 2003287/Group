@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1309034852459458471}
   - component: {fileID: 8593587929273652913}
   - component: {fileID: 1846297197106153351}
-  - component: {fileID: 2637955789863942572}
   - component: {fileID: -2366595880255747137}
   - component: {fileID: -6109360876920391809}
+  - component: {fileID: -6342740654179674459}
   m_Layer: 0
   m_Name: Radioalarm
   m_TagString: Untagged
@@ -111,19 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_item: {fileID: 11400000, guid: 3ea965c9a0b8aa64db580790af71d389, type: 2}
---- !u!65 &2637955789863942572
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6447486440098316544}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.385214, y: 0.201753, z: 0.182658}
-  m_Center: {x: 0, y: 0.1058375, z: 0}
 --- !u!82 &-2366595880255747137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -235,3 +222,18 @@ MonoBehaviour:
   m_tester: {fileID: 6447486440098316544}
   m_audio: {fileID: -2366595880255747137}
   m_clip: {fileID: 0}
+  m_cameraholder: {fileID: 0}
+  type: 0
+--- !u!65 &-6342740654179674459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447486440098316544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1303899, y: 0.42859897, z: 0.59924096}
+  m_Center: {x: 0, y: 0.21429949, z: 0.017022504}

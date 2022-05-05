@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3212603900737082996}
   - component: {fileID: 3945504444512284609}
   - component: {fileID: 6756144918004703163}
-  - component: {fileID: 6862956864157691369}
   - component: {fileID: 4920447405489813805}
   - component: {fileID: 2953164829066259417}
+  - component: {fileID: 2445939187978226852}
   m_Layer: 0
-  m_Name: OilHeater
+  m_Name: Microwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6862956864157691369
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051435014347639472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.602166, y: 0.656558, z: 0.298646}
-  m_Center: {x: 0, y: 0.393333, z: 0}
 --- !u!114 &4920447405489813805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d2b4e7fe0e9f14681a1f334d6c438d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2445939187978226852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051435014347639472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999999, y: 0.99999994, z: 1.0838249}
+  m_Center: {x: 0, y: 0.49999997, z: 0.041912492}

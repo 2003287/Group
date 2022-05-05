@@ -48,7 +48,16 @@ public class Scoreboard : MonoBehaviour
     public Text scorescreen_earnt;
     public Text scorescreen_rating;
     public Text scorescreen_score;
+    [SerializeField]
+    private Text scorescreen_mod;
+    [SerializeField]
+    private Font textfont;
+    //for the content
+    [SerializeField]
+    private Transform m_contentcontainer;
 
+    //list of values for the content
+    private List<string> contentText;
     //internal varibles
     private bool text_change;
     private float timerfloat;
@@ -63,7 +72,7 @@ public class Scoreboard : MonoBehaviour
         m_dictionary = new Dictionary<GameObject, bool>();
         itemsBehaviour = new List<GameObject>();
         energyItems = new List<GameObject>();
-
+        contentText = new List<string>();
         //shared varibles setup
         SharedScoreVaribles.sharedFloat = 0.0f;
         scorecounter = SharedScoreVaribles.sharedFloat;
@@ -77,13 +86,16 @@ public class Scoreboard : MonoBehaviour
        // SharedScoreVaribles.Settingup();
         if (!SharedScoreVaribles.moneyset)
         {
-            SharedScoreVaribles.MoneyVarible = 400.0f;
+            SharedScoreVaribles.MoneyVarible = 700.0f;
             SharedScoreVaribles.moneyset = true;
 
         }
-        if (SharedScoreVaribles.MoneyVarible < 150)
+
+       
+
+        if (SharedScoreVaribles.MoneyVarible < 500)
         {
-            SharedScoreVaribles.MoneyVarible = 150.0f;
+            SharedScoreVaribles.MoneyVarible = 500.0f;
         }
         Money_text.text = SharedScoreVaribles.MoneyVarible.ToString();
         timerfloat =1.0f;
@@ -124,6 +136,7 @@ public class Scoreboard : MonoBehaviour
             scoretest++;
            // Debug.Log(listofgame[i].name);
             objectsinScene.Add(listofgame[i]);
+           
             //check the behaviours of the objects
             if (listofgame[i].GetComponent<item>().m_item.m_Behaviour == 0)
             {
@@ -136,6 +149,9 @@ public class Scoreboard : MonoBehaviour
                 listofgame[i].GetComponent<item>().m_item.m_Behaviour = Random.Range(1, 3);
                 itemsBehaviour.Add(listofgame[i]);
                 Debug.Log(listofgame[i].GetComponent<item>().m_item.m_Behaviour);
+                //text test
+                
+
             }
            
            
@@ -166,16 +182,21 @@ public class Scoreboard : MonoBehaviour
             {
                 testing += (energyItems[i].GetComponent<item>().m_item.m_energyRating*badbehaviour);
                 Debug.Log(energyItems[i].GetComponent<item>().m_item.m_energyRating * badbehaviour);
+              
             }
             else
             {
                 testing += energyItems[i].GetComponent<item>().m_item.m_energyRating;
                 Debug.Log(energyItems[i]);
             }
+
            // Debug.Log(energyItems[i]);
         }
         Debug.Log(testing);
         testing /= energyItems.Count;
+
+        float text = testing;
+        contentText.Add("swapped item new energy rating " + text.ToString());
         Debug.Log(testing);
         return testing;
     }
@@ -253,6 +274,7 @@ public class Scoreboard : MonoBehaviour
                     moneyEarnt += item.m_item.m_cost;
                     Debug.Log("HURRAY" + game);
                     Debug.Log("THIS IS AS INTENDED");
+                    contentText.Add(game.name+ "was found +"+ item.m_item.m_cost.ToString());
                 }
                     else
                     {
@@ -267,6 +289,8 @@ public class Scoreboard : MonoBehaviour
                         Debug.Log("Work damit as INTENDED");
                         moneyEarnt -= item.m_item.m_cost / 2.0f;
                         timerfloat += 0.1f;
+                        float text = item.m_item.m_cost / 2.0f;
+                        contentText.Add(game.name + "wrong popped item -" + text.ToString());
                     }
                     else
                     {
@@ -280,6 +304,8 @@ public class Scoreboard : MonoBehaviour
                             Debug.Log("Work damit as INTENDED");
                             moneyEarnt -= item.m_item.m_cost / 2.0f;
                             timerfloat += 0.1f;
+                            float text = item.m_item.m_cost / 2.0f;
+                            contentText.Add(game.name + "wrong popped item -" + text.ToString());
                         }                        
                     }
                     
@@ -330,6 +356,7 @@ public class Scoreboard : MonoBehaviour
         //  scorescreen_score.text = scorecounter.ToString();
         scorescreen_time.text = timer.ToString() + " s";
         scorescreen_earnt.text = moneyEarnt.ToString();
+        scorescreen_mod.text = timerfloat.ToString();
         Scorecalc(timer);
         scorescreen_score.text = moneyEarnt.ToString();
         if (moneyEarnt > 0)
@@ -362,11 +389,15 @@ public class Scoreboard : MonoBehaviour
                 {
                     moneyEarnt += 30;
                     Debug.Log("offff");
+                    float text = 30.0f;
+                    contentText.Add(game.name + "turned off +" + text.ToString());
                 }
                 else
                 {
                     moneyEarnt -= 30;
                     Debug.Log("onnnn");
+                    float text = 30.0f;
+                    contentText.Add(game.name + "turned on -" + text.ToString());
                 }
                 energyratingcalculater = EnergyCalcNorm();
                 GetScore();
@@ -395,6 +426,12 @@ public class Scoreboard : MonoBehaviour
                 SwappedGameobjects.Add(item);
                 SwappedGameobjects.Remove(game);
             }
+
+            if (itemsBehaviour.Contains(game))
+            {
+                itemsBehaviour.Add(item);
+                itemsBehaviour.Remove(game);
+            }
             objectsinScene.Remove(game);
            // Debug.Log("was removed from the list new size "+ objectsinScene.Count);
         }
@@ -407,19 +444,50 @@ public class Scoreboard : MonoBehaviour
       //  Debug.Log("Unpressed");
     }
 
+    private void calcfounditems(float found)
+    {
+        switch (found)
+        {
+            case 0.0f:
+                contentText.Add(" found no objects score *=" + 0.0f  );
+                break;
+            case 1.0f:
+                contentText.Add(" found one objects score *=" + 0.2f);
+                break;
+            case 2.0f:
+                contentText.Add(" found two objects score *=" + 0.4f);
+                break;
+            case 3.0f:
+                contentText.Add(" found three objects score *=" + 0.6f);
+                break;
+            case 4.0f:
+                contentText.Add(" found four objects score *=" + 0.8f);
+                break;
+           case 5.0f:
+                contentText.Add(" found all objects score *=" + 1.0f);
+                break;
+            default:
+                Debug.Log("broke");
+                break;
+        }
+    }
     public void Scorecalc(float timer)
     {
         
         float scoreamount = 0.0f;
+        float textfloat = 0.0f;
         foreach (bool found in m_dictionary.Values)
         {
             Debug.Log(found);
             if (found)
             {
                 scoreamount += 0.2f;
+                textfloat += 1.0f;
             }
            
         }
+        
+       
 
         float behaviourfloat = 1.0f;
         foreach (GameObject game in itemsBehaviour)
@@ -428,6 +496,7 @@ public class Scoreboard : MonoBehaviour
             {
                 Debug.Log(game.name);
                 behaviourfloat -= 0.05f;
+                contentText.Add(game.name   +"was left on -" + behaviourfloat.ToString());
             }
         }
         Debug.Log(scoreamount);
@@ -441,20 +510,48 @@ public class Scoreboard : MonoBehaviour
             moneyEarnt = (moneyEarnt) / timerfloat;
         }
         Debug.Log(moneyEarnt);
-
+        if (moneyEarnt <= 0)
+        {
+            moneyEarnt = 0.0f;
+        }
         if (energyratingcalculater >= 61)
         {
             moneyEarnt *= scoreamount;
+            contentText.Add("energy rating was above 61 score *=" +scoreamount);
+
         }
         else
         {
             if (scoreamount >= 0.2f)
             {
                 moneyEarnt *= scoreamount;
-            }            
-            moneyEarnt *= 0.1f;
+                contentText.Add("energy rating was below 61 score *=" + scoreamount);
+            }
+            else
+            {
+                moneyEarnt *= 0.1f;
+                contentText.Add("energy rating was below 61 score *=" + 0.1f);
+            }
+           
         }
         moneyEarnt *= behaviourfloat;
+
+
+        for (int i = 0; i < contentText.Count; i++)
+        {
+            DefaultControls.Resources uires = new DefaultControls.Resources();
+            GameObject text = DefaultControls.CreateText(uires);
+            text.GetComponentInChildren<Text>().text = contentText[i];
+            text.GetComponentInChildren<Text>().font = textfont;
+            text.transform.SetParent(m_contentcontainer);
+            text.transform.position = new Vector3(m_contentcontainer.position.x + 100, m_contentcontainer.position.y - (30 + (i * 30)), m_contentcontainer.position.z); 
+        }
+        /* DefaultControls.Resources uires = new DefaultControls.Resources();
+            GameObject text = DefaultControls.CreateText(uires);
+            text.GetComponentInChildren<Text>().text = listofgame[i].name;
+            text.GetComponentInChildren<Text>().font = textfont;
+            text.transform.SetParent(m_contentcontainer);
+            text.transform.position = new Vector3(m_contentcontainer.position.x +00, m_contentcontainer.position.y -(20+(i*20)), m_contentcontainer.position.z);*/
         Debug.Log(moneyEarnt);
 
 
