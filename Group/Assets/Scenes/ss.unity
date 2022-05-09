@@ -4921,7 +4921,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 960862738471848382, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
       propertyPath: type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 960862738471848382, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
       propertyPath: m_audio
@@ -4979,6 +4979,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1176738497300738877, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6d734799e98293489dce51b3d15be46, type: 3}
     - target: {fileID: 7691500839686583469, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
       propertyPath: m_Name
       value: Shower
@@ -5351,9 +5355,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 91b0b618ac4efec43916dd16e0e22b8c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.045
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6772,6 +6776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1994210043}
     m_Modifications:
+    - target: {fileID: 84556854731840474, guid: 03598425d26f95b439eb177be1cf076d, type: 3}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 760573768100100154, guid: 03598425d26f95b439eb177be1cf076d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7619,6 +7627,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467971855421869755, guid: 95eded20084d51c48b157702f1d16a58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284672928892180701, guid: 95eded20084d51c48b157702f1d16a58, type: 3}
+      propertyPath: type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
