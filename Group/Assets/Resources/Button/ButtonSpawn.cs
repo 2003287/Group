@@ -68,7 +68,11 @@ public class ButtonSpawn : MonoBehaviour
         Movebuttons();
         var item = m_gameobject.GetComponent<item>();
         int posint = 0;
-        if (item)
+        if (Input.touchCount > 0 || Input.GetMouseButtonUp(0))
+        { 
+        
+        }
+            if (item)
         {
             for (int i = 0; i < m_inventoryoObject.m_container.Count; i++)
             {
@@ -115,7 +119,7 @@ public class ButtonSpawn : MonoBehaviour
                             var btn = button.GetComponent<Button>();
                             var touched = m_inventoryoObject.m_container[i].m_item;
                             UnityEngine.Events.UnityAction action = () => { Testingbutton(touched); };
-                            btn.onClick.AddListener(action);
+                            btn.onClick.AddListener(action);                           
 
 
                             
@@ -139,61 +143,72 @@ public class ButtonSpawn : MonoBehaviour
         //hides currentbuttons
         Movebuttons();
         var item = m_gameobject.GetComponent<item>();
-        if (item)
+        Debug.Log("whelp happems");
+        if (Input.touchCount > 0|| Input.GetMouseButtonUp(0))
         {
-            if (item.m_item.m_Behaviour != 0)
+            if (item)
             {
-                Debug.Log("the behaviour is hear");
-                DefaultControls.Resources uires = new DefaultControls.Resources();
-                uires.standard = behaviourimage;
-                GameObject button = DefaultControls.CreateButton(uires);
-                button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
-                button.transform.position = new Vector3(Back.transform.position.x -100, 40, Back.transform.position.z);
-                
-                if (behaviourimage)
+                if (item.m_item.m_Behaviour != 0)
                 {
-                    Debug.Log("image should apper");
+                    Debug.Log("the behaviour is hear");
+                    DefaultControls.Resources uires = new DefaultControls.Resources();
+                    uires.standard = behaviourimage;
+                    GameObject button = DefaultControls.CreateButton(uires);
+                    button.transform.SetParent(this.GetComponent<Canvas>().transform, true);
+                    button.transform.position = new Vector3(Back.transform.position.x - 100, 40, Back.transform.position.z);
+
+                    if (behaviourimage)
+                    {
+                        Debug.Log("image should apper");
+                    }
+                    Debug.Log("image is wrong");
+                    button.GetComponentInChildren<Text>().text = "OFF";
+                    button.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
+                    var testing = 1;
+                    var btn = button.GetComponent<Button>();
+                    UnityEngine.Events.UnityAction action = () => { NewBehaviour(testing); };
+                    btn.onClick.AddListener(action);
+
+                    GameObject button2 = DefaultControls.CreateButton(uires);
+                    button2.transform.SetParent(this.GetComponent<Canvas>().transform, true);
+                    button2.transform.position = new Vector3(Back.transform.position.x + 100, 40, Back.transform.position.z);
+                    button2.GetComponentInChildren<Text>().text = "ON";
+
+                    button2.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
+                    var testing2 = 2;
+                    var btn2 = button2.GetComponent<Button>();
+                    UnityEngine.Events.UnityAction action2 = () => { NewBehaviour(testing2); };
+                    btn2.onClick.AddListener(action2);
+
+
                 }
-                Debug.Log("image is wrong");
-                button.GetComponentInChildren<Text>().text ="OFF";
-                button.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
-                var testing = 1;
-                var btn = button.GetComponent<Button>();
-                UnityEngine.Events.UnityAction action = () => { NewBehaviour(testing); };
-                btn.onClick.AddListener(action);
-
-                GameObject button2 = DefaultControls.CreateButton(uires);
-                button2.transform.SetParent(this.GetComponent<Canvas>().transform, true);
-                button2.transform.position = new Vector3(Back.transform.position.x +100, 40, Back.transform.position.z);
-                button2.GetComponentInChildren<Text>().text = "ON";
-            
-                button2.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 50);
-                 var testing2 = 2;
-                var btn2 = button2.GetComponent<Button>();
-                UnityEngine.Events.UnityAction action2 = () => { NewBehaviour(testing2); };
-                btn2.onClick.AddListener(action2);
+                else
+                {
+                    Debug.Log("there is no behaviour on the object");
+                    Deletion();
+                }
 
             }
-            else
-            {
-                Debug.Log("there is no behaviour on the object");
-                Deletion();
-            }
-        
         }
+       
 
     }
 
 
     public void NewBehaviour(int newbehav)
     {
-        Debug.Log(newbehav);
-        m_gameobject.GetComponent<item>().m_item.m_Behaviour = newbehav;
+        if ( Input.touchCount > 0 ||  Input.GetMouseButtonUp(0))
+        {           
+           
+            Debug.Log(newbehav);
+            m_gameobject.GetComponent<item>().m_item.m_Behaviour = newbehav;
 
-        Debug.Log(m_gameobject.GetComponent<item>().m_item.m_Behaviour);
-        //scoreboard changing the behaviour
-        score.BehaviourChange(m_gameobject);
-        Deletion();
+            Debug.Log(m_gameobject.GetComponent<item>().m_item.m_Behaviour);
+            //scoreboard changing the behaviour
+            score.BehaviourChange(m_gameobject);
+            Deletion();
+        }
+       
 
     }
 
@@ -201,18 +216,21 @@ public class ButtonSpawn : MonoBehaviour
     {
         //Debug.Log("the button created was pressed"+item);
         //   m_inventoryoObject.SpawnObject(item);
-
-     var testgame =  Instantiate(item.gameObject,m_gameobject.transform.position,Quaternion.identity);
-        SharedScoreVaribles.MoneyVarible -= item.m_cost;
-        if (m_gameobject.GetComponent<item>().m_item.m_Behaviour != 0)
+        if (Input.touchCount > 0 || Input.GetMouseButtonUp(0))
         {
-            testgame.GetComponent<item>().m_item.m_Behaviour = m_gameobject.GetComponent<item>().m_item.m_Behaviour;
-            Debug.Log(testgame.GetComponent<item>().m_item.m_Behaviour);
+            var testgame = Instantiate(item.gameObject, m_gameobject.transform.position, Quaternion.identity);
+            SharedScoreVaribles.MoneyVarible -= item.m_cost;
+            if (m_gameobject.GetComponent<item>().m_item.m_Behaviour != 0)
+            {
+                testgame.GetComponent<item>().m_item.m_Behaviour = m_gameobject.GetComponent<item>().m_item.m_Behaviour;
+                Debug.Log(testgame.GetComponent<item>().m_item.m_Behaviour);
+            }
+
+            score.NewInstance(m_gameobject, testgame);
+
+            m_gameobject.SendMessage("Delete");
         }
         
-        score.NewInstance(m_gameobject,testgame);
-
-        m_gameobject.SendMessage("Delete");
 
     }
     void Movebuttons()

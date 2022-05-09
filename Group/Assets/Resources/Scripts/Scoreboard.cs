@@ -397,6 +397,7 @@ public class Scoreboard : MonoBehaviour
         scorescreen_time.text = timer.ToString() + " s";
         scorescreen_earnt.text = moneyEarnt.ToString();
         scorescreen_mod.text = timerfloat.ToString();
+        scorescreen_rating.text = energyratingcalculater.ToString();
         SharedScoreVaribles.firsttime = true;
         SharedScoreVaribles.firsttimeint = 1;
         Scorecalc(timer);

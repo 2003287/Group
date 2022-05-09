@@ -56,7 +56,7 @@ public class cursorpressed : MonoBehaviour
             //ray from the mouse initial press
             if (Input.GetButtonDown("Fire1"))
             {
-
+                Debug.Log("helpp");
                 if (!m_ray_hit)
                 {
                     //reseting the timer
@@ -163,59 +163,60 @@ public class cursorpressed : MonoBehaviour
             //mouse controlls
             if (Input.touchCount > 0)
             {
-
                 Touch touch = Input.GetTouch(0);
-                if (!m_ray_hit)
+                if (touch.phase == TouchPhase.Began)
                 {
-                    //reseting the timer
-                    m_resettimer = false;
-                    
-                    //ray from the mouse position to the point in screen space
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    //the resulting hit from the ray
-                    RaycastHit hit;
-                    //should draw the ray on screen it doesn't but oh well
-                    Debug.DrawRay(ray.origin, ray.direction, Color.green, 0.5f);
-                    //if there is a hit from the ray cast
-                    if (Physics.Raycast(ray, out hit, 1000))
+                    if (!m_ray_hit)
                     {
-                        //get the strign name of the gameobject
-                        m_hitstring = hit.transform.name;
-                        //debug log of the ray for testing
-                        //Debug.Log(hit.transform.name);
-                        // Debug.Log("hit");
-                        // Debug.Log(Input.mousePosition.x);
-                        // Debug.Log(Input.mousePosition.y);
-                        //bools for the hit result
-                        m_ray_hit = true;
+                        //reseting the timer
+                        m_resettimer = false;
 
-                        if (hit.collider.CompareTag("Clickable"))
+                        //ray from the mouse position to the point in screen space
+                        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                        //the resulting hit from the ray
+                        RaycastHit hit;
+                        //should draw the ray on screen it doesn't but oh well
+                        Debug.DrawRay(ray.origin, ray.direction, Color.green, 0.5f);
+                        //if there is a hit from the ray cast
+                        if (Physics.Raycast(ray, out hit, 1000))
                         {
+                            //get the strign name of the gameobject
+                            m_hitstring = hit.transform.name;
+                            //debug log of the ray for testing
+                            //Debug.Log(hit.transform.name);
+                            // Debug.Log("hit");
+                            // Debug.Log(Input.mousePosition.x);
+                            // Debug.Log(Input.mousePosition.y);
+                            //bools for the hit result
+                            m_ray_hit = true;
 
-                            m_gameObject = GameObject.Find(m_hitstring);
-                            Debug.Log(m_gameObject);
-                            m_gameObject.SendMessage("Testvoid");
-                            score.GameObjectPopped(m_gameObject);
+                            if (hit.collider.CompareTag("Clickable"))
+                            {
+
+                                m_gameObject = GameObject.Find(m_hitstring);
+                                Debug.Log(m_gameObject);
+                                m_gameObject.SendMessage("Testvoid");
+                                score.GameObjectPopped(m_gameObject);
+                            }
+                            else if (hit.collider.CompareTag("Popped"))
+                            {
+                                m_gameObject = GameObject.Find(m_hitstring);
+                                // Debug.Log(m_gameObject);
+                            }
+                            else
+                            {
+                                m_ray_hit = false;
+                            }
+
                         }
-                        else if (hit.collider.CompareTag("Popped"))
-                        {
-                            m_gameObject = GameObject.Find(m_hitstring);
-                            // Debug.Log(m_gameObject);
-                        }
+                        //no hit
                         else
                         {
                             m_ray_hit = false;
                         }
-
                     }
-                    //no hit
-                    else
-                    {
-                        m_ray_hit = false;
-                    }
-
-
                 }
+               
 
                 //holding
                 //timer increases
