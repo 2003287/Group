@@ -4921,7 +4921,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 960862738471848382, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 960862738471848382, guid: 95223439677e3634195c0f55e7e2bdbd, type: 3}
       propertyPath: m_audio
@@ -6778,7 +6778,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 84556854731840474, guid: 03598425d26f95b439eb177be1cf076d, type: 3}
       propertyPath: type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760573768100100154, guid: 03598425d26f95b439eb177be1cf076d, type: 3}
       propertyPath: m_RootOrder
@@ -9906,6 +9906,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 660476815}
     m_Modifications:
+    - target: {fileID: 1003098997998466936, guid: 50b6116675d4ccc49938739d8721fe43, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1516561970831118939, guid: 50b6116675d4ccc49938739d8721fe43, type: 3}
       propertyPath: m_RootOrder
       value: 1
