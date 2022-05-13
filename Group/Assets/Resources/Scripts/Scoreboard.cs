@@ -214,18 +214,18 @@ public class Scoreboard : MonoBehaviour
        
         for (int i = 0; i < energyItems.Count; i++)
         {
-            Debug.Log(i);
-            Debug.Log(energyItems[i].name);
+           // Debug.Log(i);
+         //   Debug.Log(energyItems[i].name);
             if (energyItems[i].GetComponent<item>().m_item.m_Behaviour == 2)
             {
                 testing += (energyItems[i].GetComponent<item>().m_item.m_energyRating*badbehaviour);
-                Debug.Log(energyItems[i].GetComponent<item>().m_item.m_energyRating * badbehaviour);
+                //Debug.Log(energyItems[i].GetComponent<item>().m_item.m_energyRating * badbehaviour);
               
             }
             else
             {
                 testing += energyItems[i].GetComponent<item>().m_item.m_energyRating;
-                Debug.Log(energyItems[i]);
+               // Debug.Log(energyItems[i]);
             }
 
            // Debug.Log(energyItems[i]);
@@ -489,6 +489,48 @@ public class Scoreboard : MonoBehaviour
       //  Debug.Log("Unpressed");
     }
 
+    public void ItemRemoved(GameObject game)
+    {
+        Debug.Log("The item was Removed from the game");
+        Debug.Log(game);
+        if (objectsinScene.Contains(game))
+        {
+            // int pos = objectsinScene.IndexOf(game);
+
+            if (m_dictionary.ContainsKey(game))
+            {
+                  Debug.Log("THIS WAS TESTED OUT TO WORK");
+                // energyratingcalculater = Energycreater(game, item);
+                energyratingcalculater = EnergyCalcNorm();
+
+                if (itemsBehaviour.Contains(game))
+                {
+                   
+                 itemsBehaviour.Remove(game);
+                }
+            }
+
+            if (SwappedGameobjects.Contains(game))
+            {
+                //  energyratingcalculater = Energycreater(game, item);
+
+                energyratingcalculater = EnergyCalcNorm();
+                SwappedGameobjects.Remove(game);
+            }
+
+            if (energyItems.Contains(game))
+            {
+                energyItems.Remove(game);
+                energyratingcalculater = EnergyCalcNorm();
+            }
+            objectsinScene.Remove(game);
+            // Debug.Log("was removed from the list new size "+ objectsinScene.Count);
+        }
+
+      
+        GetScore();
+       
+    }
     private void calcfounditems(float found)
     {
         switch (found)

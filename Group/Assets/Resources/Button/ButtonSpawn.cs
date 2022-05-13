@@ -13,7 +13,7 @@ public class ButtonSpawn : MonoBehaviour
     private Scoreboard score;
     public Image Back;
     public Sprite behaviourimage;
-
+    private cursorpressed m_cursorpressed;
     public void AttachedObject(GameObject game)
     {
         m_gameobject = game;
@@ -31,6 +31,7 @@ public class ButtonSpawn : MonoBehaviour
         }
 
         score = GameObject.FindObjectOfType<Scoreboard>();
+        m_cursorpressed = FindObjectOfType<cursorpressed>();       
     }
     // Update is called once per frame
     void Update()
@@ -218,7 +219,19 @@ public class ButtonSpawn : MonoBehaviour
         //   m_inventoryoObject.SpawnObject(item);
         if (Input.touchCount > 0 || Input.GetMouseButtonUp(0))
         {
-            var testgame = Instantiate(item.gameObject, m_gameobject.transform.position, Quaternion.identity);
+
+            var testgame = new GameObject();
+            Debug.Log(item.gameObject.name);
+            //issue with the lamp couldn't fix without redoing the model
+            if (item.gameObject.name == "Lamphigh")
+            {
+                testgame = Instantiate(item.gameObject, m_gameobject.transform.position, Quaternion.Euler(new Vector3(0, 180, 0)));
+            }
+            else 
+            {
+                testgame = Instantiate(item.gameObject, m_gameobject.transform.position, item.gameObject.transform.rotation);
+            }
+                
             SharedScoreVaribles.MoneyVarible -= item.m_cost;
             if (m_gameobject.GetComponent<item>().m_item.m_Behaviour != 0)
             {
@@ -250,7 +263,8 @@ public class ButtonSpawn : MonoBehaviour
             m_buttons.Remove(go);
             break;
         }
-
+        m_cursorpressed.GameobjectNull();
         Destroy(this.gameObject);
+
     }
 }

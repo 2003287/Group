@@ -121,7 +121,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1a01a0ba1bc8ce045a5a393b09b069d4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 47b647d4d4b04bd45a2797013c5a8cb8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_tester: {fileID: 340244456025760384}
   m_audio: {fileID: -1553909016006584329}
   m_clip: {fileID: 0}
+  m_cameraholder: {fileID: 0}
+  type: 0
 --- !u!65 &7076904791203485227
 BoxCollider:
   m_ObjectHideFlags: 0

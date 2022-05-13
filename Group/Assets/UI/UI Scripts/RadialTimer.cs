@@ -79,7 +79,7 @@ public class RadialTimer : MonoBehaviour
     }
     public IEnumerator TimesUp()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.0f);
         //max time how much time you have 
         //current time is max time - number of seconds
         //max time -  current how 

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1553909016006584329, guid: 20ad6b52e96333b428d2649401ee2a20, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 47b647d4d4b04bd45a2797013c5a8cb8, type: 3}
     - target: {fileID: 340244456025760384, guid: 20ad6b52e96333b428d2649401ee2a20, type: 3}
       propertyPath: m_Name
       value: Hairdryerlow

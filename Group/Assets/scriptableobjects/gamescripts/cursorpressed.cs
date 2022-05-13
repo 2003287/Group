@@ -47,7 +47,10 @@ public class cursorpressed : MonoBehaviour
     }
 
 
-
+    public void GameobjectNull()
+    {
+        m_gameObject = null;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -112,6 +115,7 @@ public class cursorpressed : MonoBehaviour
             if (Input.GetButton("Fire1"))
             {
                 //timer increases
+                if(m_gameObject)
                 timer += Time.deltaTime;
             }
             //when the button isn't pressed any more

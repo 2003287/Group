@@ -11,7 +11,7 @@ public class SmallObjectScript : MonoBehaviour
     //timer
     private float m_timer_varible;
     private float m_Colour_back;
-    
+    private Scoreboard m_scoreboard;
     //enum for clicked
     enum PoppingState {Notpopped,Popped };
     private PoppingState m_popState;
@@ -26,6 +26,7 @@ public class SmallObjectScript : MonoBehaviour
         m_Colour_back = 0;
         gameObject.tag = "Clickable";
         m_popState = PoppingState.Notpopped;
+        m_scoreboard = FindObjectOfType<Scoreboard>();
     }
 
     // Update is called once per frame
@@ -39,8 +40,9 @@ public class SmallObjectScript : MonoBehaviour
         }
        
         else if (m_timer_varible >= 3.0)
-        {           
-            Destroy(this.gameObject);
+        {
+
+            Delete();
         }
       
        
@@ -76,6 +78,7 @@ public class SmallObjectScript : MonoBehaviour
     }
     void Delete()
     {
+        m_scoreboard.ItemRemoved(this.gameObject);
         Destroy(this.gameObject);
     }
 

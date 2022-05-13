@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_item
       value: 
       objectReference: {fileID: 11400000, guid: 7ab24f911b19a6b4a9a81c7d2ff95d4f, type: 2}
+    - target: {fileID: 7448537214196807062, guid: 69b3d43fb393f094cbf5b6f1345fee48, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 47b647d4d4b04bd45a2797013c5a8cb8, type: 3}
     m_RemovedComponents:
     - {fileID: 8000598231567135818, guid: 69b3d43fb393f094cbf5b6f1345fee48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 69b3d43fb393f094cbf5b6f1345fee48, type: 3}
