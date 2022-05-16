@@ -624,6 +624,11 @@ public class Scoreboard : MonoBehaviour
         moneyEarnt *= behaviourfloat;
 
 
+        if (energyItems.Count == 0)
+        {
+            moneyEarnt = -500.0f;
+            contentText.Add("As there are no Items the score are negative");
+        }
         for (int i = 0; i < contentText.Count; i++)
         {
             DefaultControls.Resources uires = new DefaultControls.Resources();
@@ -633,6 +638,7 @@ public class Scoreboard : MonoBehaviour
             text.transform.SetParent(m_contentcontainer);
             text.transform.position = new Vector3(m_contentcontainer.position.x + 100, m_contentcontainer.position.y - (30 + (i * 30)), m_contentcontainer.position.z); 
         }
+
         /* DefaultControls.Resources uires = new DefaultControls.Resources();
             GameObject text = DefaultControls.CreateText(uires);
             text.GetComponentInChildren<Text>().text = listofgame[i].name;
