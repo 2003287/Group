@@ -1,0 +1,80 @@
+f1518df,ec1306869-Liam Ross,added in comments to all the scriptss,comments to all the scripts
+,%ah
+cc505bf,ec1306869-Liam Ross,update for negative score,addeding in the ability to have a negative score when removeing all energys items
+,%ah
+3b1a0c8,ec1306869-Liam Ross,Bug Fixes,attempted to fix remove, spelling mistakes, model loading and other bugs in the game. add glossary terms
+,%ah
+886e814,robtheditch,audio,volume changes
+,%ah
+a9a00b0,robtheditch,Merge branch 'main' of https://github.com/2003287/Group,,%ah
+8e41fb0,robtheditch,audio,added music to other screen
+,%ah
+f5042fd,ec1306869-Liam Ross,made mobile controls that work in game,,%ah
+b612aa0,robtheditch,Update ss.unity,,%ah
+6ddd0db,robtheditch,Update ss.unity,,%ah
+706f702,robtheditch,Update ss.unity,,%ah
+cd891df,robtheditch,audio changes,Music Track added and clothes iron sound
+,%ah
+9fe9821,ec1306869-Liam Ross,fixed an issue,Added in firsttime hard mode to the level. issue with incorrect spawnign and energy rating fixed
+,%ah
+f09e4f5,ec1306869-Liam Ross,scorescreen,behaviours adn prefab correcting,issues with prefab having incorrect box colliders, images implementation to button in level, score screen implementation, implemented everything aside from a first time extra hard
+,%ah
+8a48a4d,ec1306869-Liam Ross,all assets added in and all the codex pages completed,added all teh models and images give by ben to the codex and to the models. the pop menus for codex works as intended and displays information to the player about there enviromental impact
+,%ah
+426496f,ec1306869-Liam Ross,assets adding behaviour tweaks and button movement,change the assets for all of teh items except the bedtable and computer, got behaviour to work for teh code now needs implemented. got the behaviour button to spawn properly now just need to do teh same to swapping and done with this stuff
+,%ah
+e4dd590,ec1306869-Liam Ross,added Irons and microwave into scene,,%ah
+95ce126,ec1306869-Liam Ross,Updated desks,,%ah
+252b751,ec1306869-Liam Ross,update so chris can ui,just a update fromk the last build
+,%ah
+2520ae0,ec1306869-Liam Ross,Switching of Models,swapping hairdryer and oilheater for microwave and iron in scripts
+,%ah
+c681454,ec1306869-Liam Ross,behaviourscore UPdate,Update for the scoreing to include behaviours
+,%ah
+ce4df32,ec1306869-Liam Ross,codex pages,Implemented the basic codex page implementation and tested it works
+,%ah
+57b974d,ec1306869-Liam Ross,Sound merged in,Sound are incorparted into the game
+,%ah
+7b4029e,2003287,Behaviour setup,Got the behaviour working
+,%ah
+853235e,2003287,Merge branch 'main' of https://github.com/2003287/Group,,%ah
+941d11d,2003287,Scripting of Behaviour,doing the behaviour scripting
+,%ah
+5c37663,2003287,Merge pull request #6 from LittleLightProductions/main,Merging prefabs,%ah
+05ab5c0,LYLE SCOTT-KERR,Merge branch 'main' of https://github.com/LittleLightProductions/Group,,%ah
+5978443,LYLE SCOTT-KERR,prefabs changed,Switched the prefab, and asset
+,%ah
+f241126,2003287,Merge pull request #5 from robtheditch/main,sounds update,%ah
+9a08bd5,2003287,small updates for testing,,%ah
+38892db,ISAAC JOHNSON,sounds update,added radiator, Ui sounds and music track
+,%ah
+542dadb,2003287,added in a sound for ui option,created a void fro ui sounds
+,%ah
+f09a106,ec1306869-Liam Ross,re-adding the submmision to github,has the alpha submission plus, bugfixes to the submission, added in the home world
+,%ah
+94e9ac6,ec1306869-Liam Ross,prefab fix,,%ah
+6dc5623,2003287,added in the sounds,,%ah
+db22320,2003287,added in the menus from chris,stuff like levels and fining an issue
+,%ah
+f8ba71f,ec1306869-Liam Ross,creation of swap button and the database,swap button database and the ability of the switchign of the assests in the scene
+,%ah
+1978f2b,ec1306869-Liam Ross,Completed camera movement in one direction,the camera moves after the press of the g button
+,%ah
+379f97f,2003287,Merge pull request #4 from 2003287/Liam-Branch,Hopefully a fixed unity project,%ah
+bdbd6ab,2003287,need to reupload the merging,there was as issue with the merging doing an a remerge
+,%ah
+c315230,2003287,Merge pull request #3 from 2003287/Liam-Branch,reupload of merge from Liam branch,%ah
+be12092,2003287,need to reupload the merging,there was as issue with the merging doing an a remerge
+,%ah
+aa613ad,2003287,issues with merging,,%ah
+da97bba,2003287,Merge branch 'main' into Liam-Branch,,%ah
+1354f98,ec1306869-Liam Ross,updated buttons and other things,,%ah
+7497cbe,2003287,button changes,,%ah
+0429b1f,ec1306869-Liam Ross,camera movement and buttons,,%ah
+161c968,2003287,allot of things,changed the pressing system
+,%ah
+1ee1a15,2003287,Merge pull request #1 from 2003287/Liam-Branch,allot i forgot to uplload,%ah
+804380b,ec1306869-Liam Ross,allot i forgot to uplload,a few tests in the game
+,%ah
+2cf1014,ec1306869-Liam Ross,testing,,%ah
+83e2407,2003287,Initial commit,,%ah
