@@ -5,13 +5,14 @@ using UnityEngine;
 public class ItemDatabase : ScriptableObject,ISerializationCallbackReceiver
 {
     public ItemObject[] items;   
+    //hold the dictionarys for both
     public Dictionary<ItemObject,int> m_getid = new Dictionary<ItemObject,int>();
     public Dictionary< int,ItemObject> m_getItem = new Dictionary< int,ItemObject>();
     public void OnBeforeSerialize()
     {
         
     }
-
+    //add the items to the two dictionarys 
     public void OnAfterDeserialize()
     {
         m_getid = new Dictionary<ItemObject, int>();
@@ -20,7 +21,6 @@ public class ItemDatabase : ScriptableObject,ISerializationCallbackReceiver
         {
             m_getid.Add(items[i], i);
             m_getItem.Add(i,items[i]);
-           // Debug.Log("testing this out");
           
         }
     }

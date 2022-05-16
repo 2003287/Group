@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class item : MonoBehaviour
 {
+    //creates a item to be use in other classes
     public ItemObject m_item;
    
 

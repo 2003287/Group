@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//obsolete made by Liam Ross for moving the camera done in MoveCamera in the ui folder
 public class CameraMovement : MonoBehaviour
 {
     enum Cameraposition {POSITION1, POSITION2,POSITION3 };

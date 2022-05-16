@@ -22,10 +22,13 @@ public class Ignore : MonoBehaviour
         
     }
 
+    //move the object off screen
     public void Move()
     {
         this.transform.position = new Vector3(-500,60,60);
     }
+
+    //delete this object
     public void Delete()
     {
         Destroy(this.gameObject);

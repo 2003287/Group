@@ -43,6 +43,7 @@ public class RadialTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //while the leve is still going decrease the value downwards towards 0
         if (currentTimer > 0&& !timesUp.activeSelf)
         {
             currentTimer = currentTimer - timer_var * Time.deltaTime;
@@ -53,7 +54,7 @@ public class RadialTimer : MonoBehaviour
 
             timerImage.color = Color.Lerp(endColour, startColour, fillAmount);     
         }
-
+        //when the timer is over load the score screen
         if(currentTimer < 0)
         {
             timesUp.SetActive(true);
@@ -77,6 +78,7 @@ public class RadialTimer : MonoBehaviour
         
         StartCoroutine(TimesUp());
     }
+    //times up spaws the score screen after and displays a times up message
     public IEnumerator TimesUp()
     {
         yield return new WaitForSeconds(1.0f);

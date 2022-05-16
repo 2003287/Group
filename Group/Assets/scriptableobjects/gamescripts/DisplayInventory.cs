@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 public class DisplayInventory : MonoBehaviour
 {
+    //obsolete for debuging perposes to showcase the item in rpg style inventory
+
     // Start is called before the first frame update
     public InventoryoObject m_inventory;
     public int x_start;
@@ -42,6 +44,7 @@ public class DisplayInventory : MonoBehaviour
             }
         }
     }
+    //creates a display on a canvas
     public void CreateDisplay()
     {
         for (int i = 0; i < m_inventory.m_container.Count; i++)
@@ -52,7 +55,7 @@ public class DisplayInventory : MonoBehaviour
             ItemsDisplay.Add(m_inventory.m_container[i], obj);
         }
     }
-
+    //setup teh positions
     public Vector3 GetPos(int i)
     {
         return new Vector3(x_start+(x_space*(i%NUM_of_col)),y_start +(-y_space*(i/NUM_of_col)),0.0f);

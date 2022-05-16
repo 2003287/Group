@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Kitchen Object", menuName = "Inventory System/Items/Kitchen")]
+//for a kitchen object set teh room type
 public class KitchenScript : ItemObject
 {
     public void Awake()

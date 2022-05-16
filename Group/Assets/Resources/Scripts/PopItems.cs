@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+//obsolete not used was going to be used to dictate the popping of objects done in button swap and scoreboard
+//made bu Liam Ross
 public class PopItems : MonoBehaviour
 {
     public RoomType roomType;

@@ -18,24 +18,13 @@ public class Remove : MonoBehaviour
     {
        
     }
-
+    //setup game object
     public void Testing(GameObject game)
     {
-        m_gameobject = game;
-       // this.transform.position = new Vector3(-60,-135,0);
-       /* Debug.Log("the objects name is" + m_gameobject);
-        RectTransform recttest = this.GetComponent<RectTransform>();
-        Vector3 pos = new Vector3(m_gameobject.transform.position.x + movepos.x, m_gameobject.transform.position.y + movepos.y, m_gameobject.transform.position.z + movepos.z);
-        Vector2 canpos;
-        Vector2 screen = Camera.main.WorldToScreenPoint(pos);
-        Canvas can = this.GetComponentInParent<Canvas>();
-        RectTransform canrect = can.GetComponent<RectTransform>();
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canrect, screen, null, out canpos);
-
-        // recttest.localPosition = pos;
-        this.transform.localPosition = canpos;*/
+        m_gameobject = game;     
     }
 
+    //tells the gameobect to delete its self and remove the object in scoreboard
     public void testing()
     {
         Debug.Log("this is testing");
@@ -43,6 +32,7 @@ public class Remove : MonoBehaviour
         var test = GameObject.FindObjectOfType<Scoreboard>();
         test.RemovalofObjects(m_gameobject);
     }
+    //move the button off screen
     public void Move()
     {
         this.transform.position = new Vector3(-500, 60, 60);

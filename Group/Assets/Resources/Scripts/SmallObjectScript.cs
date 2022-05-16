@@ -39,16 +39,17 @@ public class SmallObjectScript : MonoBehaviour
             m_counting++;
         }
        
+        //delete the item if timer is greater then 3
         else if (m_timer_varible >= 3.0)
         {
-
             Delete();
         }
       
        
         //print(gameObject.activeSelf?"Active":"Inactive");
     }
-     void Testvoid()
+    //obsolete
+    void Testvoid()
     {
         if (m_popState != PoppingState.Popped)
         {
@@ -61,6 +62,7 @@ public class SmallObjectScript : MonoBehaviour
             m_testing = true;
         }
     }
+    //obsolete
     void ColourBack()
     {
         if (m_finished)
@@ -71,11 +73,14 @@ public class SmallObjectScript : MonoBehaviour
         }
 
     }
+    //obsolete
     void TimerSetting(float time)
     {
         m_timer_varible = time;
         m_finished = true;
     }
+
+    //deletes the objects from the screen
     void Delete()
     {
         m_scoreboard.ItemRemoved(this.gameObject);

@@ -84,7 +84,7 @@ public class player : MonoBehaviour
                break;
              }          
         }
-       
+       //for the buttons
         foreach (GameObject go in m_buttons)
         {
             if (go == null)
@@ -107,13 +107,14 @@ public class player : MonoBehaviour
 
         m_small_gameobjects.Clear();
     }
-
+    //create a buttons on screen
     public void CreateButtons(GameObject Touchedobject)
     {
        // Debug.Log("this will spawn a button");
       //  Debug.Log(Touchedobject);
         if (Touchedobject)
         {
+            //add teh buttons on teh screen
             if (m_buttons.Count == 0)
             {
                 var item = Touchedobject.GetComponent<item>();
@@ -122,6 +123,7 @@ public class player : MonoBehaviour
                     m_inventoryoObject.Itemcheck(item.m_item);
                     //m_inventoryoObject.addItem(item.m_item, 1);
                 }
+                //instantiate the buttons on screen
                 m_buttons.Add(Instantiate(Resources.Load("Button/Canvas") as GameObject));
                 m_buttons[0].GetComponent<ButtonSpawn>().AttachedObject(Touchedobject);
                 Debug.Log(Touchedobject);
@@ -129,6 +131,7 @@ public class player : MonoBehaviour
             }
             else
             {
+                //remove the objects
                 m_buttons[0].GetComponent<ButtonSpawn>().Deletion();
                 m_buttons.Clear();
 

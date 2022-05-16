@@ -27,11 +27,12 @@ public class MoveCamera : MonoBehaviour
     {
         
     }
-
+    //reutn what camera is on the screen // added by Liam Ross
     public int Getpos()
     {
         return currentPos;
     }
+    //move the position to the next camera position
     public void MoveCameraPos(int nextPos)
     {
         currentPos += nextPos;
@@ -62,7 +63,7 @@ public class MoveCamera : MonoBehaviour
         SwitchPos(currentPos);
     }
 
-
+    //update the camera to move to the new position
     void SwitchPos(int Position)
     {
         switch (Position)

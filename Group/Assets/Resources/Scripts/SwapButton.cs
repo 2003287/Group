@@ -27,14 +27,17 @@ public class SwapButton : MonoBehaviour
       //  Debug.Log("swap has recevied"+ m_gameobject);
     }
 
+    //spawn teh new item and remove the old object
     public void Swapping()
     {
          var obj = m_gameobject.GetComponent<item>();
            Debug.Log("fiddlesticks"+obj);
+        //spawn the object from the blackboard
            m_inventory.SpawnObject(obj.m_item);
            m_gameobject.SendMessage("Delete");
        
     }
+    //move teh item off screen
     public void Move()
     {
         this.transform.position = new Vector3(-500, 60, 60);

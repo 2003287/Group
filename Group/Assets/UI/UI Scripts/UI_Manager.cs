@@ -49,7 +49,7 @@ public class UI_Manager : MonoBehaviour
             energyRating = SharedScoreVaribles.energyRating;
         }
     }
-
+    //open the menu
     public void OpenMenu(GameObject Menu)
     {
         Menu.SetActive(true);
@@ -60,14 +60,14 @@ public class UI_Manager : MonoBehaviour
             HUD.SetActive(false);
         }
     }
-
+    //close the pause menu
     public void close(GameObject button)
     {
         button.transform.parent.gameObject.SetActive(false);
         Time.timeScale = 1;
         HUD.SetActive(true);
     }
-
+    //check when the level is paused
     public void LevelPause()
     {
         if (SharedScoreVaribles.Finishedlevel)
@@ -80,7 +80,7 @@ public class UI_Manager : MonoBehaviour
         }
         
     }
-
+    //when a button is pressed go to the correct scene
     public void ButtonPress(string buttonName)
     {
         switch(buttonName)

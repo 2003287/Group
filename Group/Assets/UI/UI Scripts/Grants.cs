@@ -34,6 +34,7 @@ public class Grants : MonoBehaviour
     {
         
     }
+    //open teh grants for the scene
     public void GrantOpen(string grantName)
     {
         levelSelect.SetActive(false);
@@ -62,6 +63,7 @@ public class Grants : MonoBehaviour
         }
             
     }
+    //select teh correct level in teh menus
     public void DifficultySelect(string diffcultyName)
     {
         levelSelect.SetActive(false);
@@ -91,6 +93,7 @@ public class Grants : MonoBehaviour
         }
 
     }
+    //close teh object that is open on the screen
     public void Close(GameObject button)
     {
         button.transform.parent.gameObject.SetActive(false);

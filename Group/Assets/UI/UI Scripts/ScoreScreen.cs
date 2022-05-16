@@ -51,7 +51,7 @@ public class ScoreScreen : MonoBehaviour
         button.transform.parent.gameObject.SetActive(false);
         scoreBase.SetActive(true);
     }
-
+    //close and go back to the home screen
     public void Close()
     {
         SceneManager.LoadScene("Home");

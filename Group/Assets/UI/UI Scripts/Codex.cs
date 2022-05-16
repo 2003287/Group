@@ -23,6 +23,7 @@ public class Codex : MonoBehaviour
     }
 
     // Update is called once per frame
+    //display teh tabs on teh screen of the codex
     void Update()
     {
         if(currentPage == 0)
@@ -80,6 +81,7 @@ public class Codex : MonoBehaviour
         }
     }
 
+    //open teh correct codex page after touching the button
     public void openCodex(string name)
     {
         switch(name)
@@ -114,6 +116,7 @@ public class Codex : MonoBehaviour
                 break;
         }
     }
+    //move to teh next page
     public void NextPage(int pageNum)
     {
         bookPages[currentPage].SetActive(false);
@@ -121,6 +124,7 @@ public class Codex : MonoBehaviour
         bookPages[currentPage].SetActive(true);
     }
     
+    //ope the help button
     public void HelpButton(string button)
     {
         switch (button)

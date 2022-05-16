@@ -123,14 +123,14 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
     {
        
     }
-
+    //allows the player to dreg on the screen
     public void DragAllow()
     {
         Debug.Log("this is to allow the drag to happen");
         if(!dragAllow)
         dragAllow = true;
     }
-   
+   //check when the drag has stopped
     public void DragExit()
     {
         
@@ -142,6 +142,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
             dragAllow = false;
         }
     }
+    //open the level menu
     public void PressPlay()
     {
         levelOpen = levelAnimator.GetBool("Open");
@@ -149,6 +150,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         button.SetActive(levelOpen);
     }
 
+    //select teh correct difficulty of teh level
     public void Difficulty(string Level)
     {
         difficultyOpen = difficultyAnimator.GetBool("Open");
@@ -183,6 +185,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
+    //open the difficulty of option
     public void OpenDifficulty()
     {
 
@@ -197,7 +200,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
             difficultyBackground.SetActive(false);
         }
     }
-
+    //load teh correct scene
     public void ButtonPress(string buttonName)
     {
         switch (buttonName)
@@ -219,7 +222,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
                 break;
         }
     }
-
+    //open the codex
     public void OpenCodex()
     {
         codex.SetActive(true);
@@ -229,6 +232,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
             UI.SetActive(false);
         }
     }
+    //open the grants 
     public void OpenGrants()
     {
 
@@ -263,7 +267,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         }
         Debug.Log("When");
     }
-
+    //open the grants up to display information
     public void GrantOpen(string grantName)
     {
         grantsButtons.SetActive(false);
@@ -293,7 +297,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         }
 
     }
-
+    //close the button on screen
     public void Close(GameObject button)
     {
         button.transform.parent.gameObject.SetActive(false);
@@ -309,6 +313,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         }
 
     } 
+    //display the enviromental stars
     private void EnvironmentStars()
     {
         switch(environmentValue)
@@ -351,6 +356,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
+    //display the number of economic stars on the screen
     private void EconomicStars()
     {
         switch (energyValue)
@@ -392,6 +398,7 @@ public class HomeUI : MonoBehaviour, IDragHandler, IEndDragHandler
                 break;
         }
     }
+    //add to the stars on screen
     public void stars(float newValue)
     {
         environmentValue += newValue;

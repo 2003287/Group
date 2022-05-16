@@ -75,11 +75,7 @@ public class cursorpressed : MonoBehaviour
                     {
                         //get the strign name of the gameobject
                         m_hitstring = hit.transform.name;
-                        //debug log of the ray for testing
-                        //Debug.Log(hit.transform.name);
-                        // Debug.Log("hit");
-                        // Debug.Log(Input.mousePosition.x);
-                        // Debug.Log(Input.mousePosition.y);
+                      
                         //bools for the hit result
                         m_ray_hit = true;
 
@@ -193,10 +189,10 @@ public class cursorpressed : MonoBehaviour
                             // Debug.Log(Input.mousePosition.y);
                             //bools for the hit result
                             m_ray_hit = true;
-
+                            //if teh item is clickable
                             if (hit.collider.CompareTag("Clickable"))
                             {
-
+                                //setup teh pooped item
                                 m_gameObject = GameObject.Find(m_hitstring);
                                 Debug.Log(m_gameObject);
                                 m_gameObject.SendMessage("Testvoid");
@@ -235,7 +231,7 @@ public class cursorpressed : MonoBehaviour
                     if (!m_resettimer && m_ray_hit)
                     {
 
-
+                        //when teh finger moves update the timer for the finget 
                         if (m_gameObject && m_gameObject.CompareTag("Popped"))
                         {
                             //  Debug.Log(m_gameObject);
